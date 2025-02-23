@@ -4,6 +4,7 @@ from settings import *
 class TextManager:
     def __init__(self):
         self.font = pygame.font.Font('freesansbold.ttf', 16)
+        self.numberFont = pygame.font.Font('freesansbold.ttf', 40)
         # self.messages = ["How can I be of assistance?",
         #                  "Is there some questions you would like to ask me?",
         #                  "If so go ahead and start asking."]
@@ -74,6 +75,13 @@ class TextManager:
 
         screen.blit(self.snip, (ANSWER_X+10, ANSWER_Y+10))
         
+    def questionSequence(self, screen, sequence):
+        print(sequence)
+        string_sequence = str(sequence)
+
+        pygame.draw.rect(screen, 'black', [SEQUENCE_X, SEQUENCE_Y, SEQUENCE_WIDTH, SCREEN_HEIGHT])
+        self.snip = self.numberFont.render(string_sequence, True, 'white')
+        screen.blit(self.snip, (SEQUENCE_X+10, SEQUENCE_Y+10))
 
     def updateCounter(self):
         # self.displayAnswerText()

@@ -13,7 +13,7 @@ class Game:
         self.clock = pygame.time.Clock()
 
         # self.level = Level()
-        self.sceneManager = TextManager()
+        self.textManager = TextManager()
 
         # Buttons for interrogation questions
         self.questionOneButton = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
@@ -47,7 +47,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-                
+
                 # Checks for even when button clicked
                 self.questionOneButton.handle_event(event)
                 self.questionTwoButton.handle_event(event)
@@ -56,28 +56,28 @@ class Game:
                 if self.buildString == self.secretString and self.sequence == 3:
                     self.questionFourButton.handle_event(event)
                     if self.questionFourButton.handle_event(event):
-                        self.sceneManager.updateCounter()
+                        self.textManager.updateCounter()
                         self.question = 4
                         self.displayText = True
                         self.buildString = ""
 
                 # Depending on what question is clicked a answer will be given
                 if self.questionOneButton.handle_event(event):
-                    self.sceneManager.updateCounter()
+                    self.textManager.updateCounter()
                     self.question = 1
                     self.displayText = True
                     self.sequence += 1
                     self.buildString = self.buildString + self.questionOneString
 
                 elif self.questionTwoButton.handle_event(event):
-                    self.sceneManager.updateCounter()
+                    self.textManager.updateCounter()
                     self.question = 2
                     self.displayText = True
                     self.sequence += 1
                     self.buildString = self.buildString + self.questionTwoString
 
                 elif self.questionThreeButton.handle_event(event):
-                    self.sceneManager.updateCounter()
+                    self.textManager.updateCounter()
                     self.question = 3
                     self.displayText = True
                     self.sequence += 1
@@ -92,7 +92,7 @@ class Game:
             self.questionThreeButton.draw(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT, self.screen)
 
 
-            print(self.buildString)
+            # print(self.buildString)
             if self.buildString == self.secretString and self.sequence == 3:
                 self.questionFourButton.draw(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT, self.screen)
                 if self.questionFourButton.is_hovered(mouse_pos):
@@ -131,7 +131,8 @@ class Game:
                 
             # Depending on even above a answer will be returned
             if self.displayText == True:
-                self.sceneManager.displayAnswerText(self.screen, self.question)
+                self.textManager.displayAnswerText(self.screen, self.question)
+                self.textManager.questionSequence(self.screen, self.sequence)
                 
             pygame.display.flip()
             pygame.display.update()
