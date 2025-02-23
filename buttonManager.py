@@ -1,5 +1,6 @@
 import pygame
 from settings import *
+from textManager import TextManager
 
 class Button:
     def __init__(self, x, y, width, height, text, color, highlighted_color, action=None):
@@ -10,7 +11,6 @@ class Button:
         self.highlighted_color = highlighted_color
         self.action = action
         self.snip = self.font.render('', True, 'white')
-        self.questionOne = "What is your relationship with Burgermeister?"
 
     def draw(self, button_x, button_y, button_width, button_height, screen):
         text_surface = self.font.render(self.text, True, 'white')
@@ -19,7 +19,6 @@ class Button:
         
 
     def highlight(self, button_x, button_y, button_width, button_height, screen):
-        
         text_surface = self.font.render(self.text, True, 'grey')
         text_rect = pygame.draw.rect(screen, 'black', [button_x, button_y, button_width, button_height,])
         screen.blit(text_surface, text_rect)
