@@ -1,6 +1,5 @@
 import os
 import google.generativeai as genai
-from sceneManager import SceneManager
 
 from dotenv import load_dotenv
 load_dotenv()
