@@ -1,6 +1,5 @@
 import pygame
 from settings import *
-from textManager import TextManager
 
 class Button:
     def __init__(self, x, y, width, height, text, color, highlighted_color, action=None):
@@ -13,14 +12,14 @@ class Button:
         self.snip = self.font.render('', True, 'white')
 
     def draw(self, button_x, button_y, button_width, button_height, screen):
-        text_surface = self.font.render(self.text, True, 'white')
-        text_rect = pygame.draw.rect(screen, 'black', [button_x, button_y, button_width, button_height])
-        screen.blit(text_surface, text_rect)
-        
 
-    def highlight(self, button_x, button_y, button_width, button_height, screen):
-        text_surface = self.font.render(self.text, True, 'grey')
-        text_rect = pygame.draw.rect(screen, 'black', [button_x, button_y, button_width, button_height,])
+        mouse_pos = pygame.mouse.get_pos()
+        if self.is_hovered(mouse_pos):
+            text_surface = self.font.render(self.text, True, self.highlighted_color)
+        else:
+            text_surface = self.font.render(self.text, True, self.color)
+
+        text_rect = pygame.draw.rect(screen, 'black', [button_x, button_y, button_width, button_height])
         screen.blit(text_surface, text_rect)
 
     def handle_event(self, event):
