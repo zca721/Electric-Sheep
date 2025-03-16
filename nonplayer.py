@@ -24,5 +24,5 @@ class Nonplayer(pygame.sprite.Sprite):
 
         for animation in self.animations.keys():
             # May need to change the path when uploading to github as a playable link
-            full_path = '/Users/zacharyanderson/Unity-workspace/Blabe Walker/images/' + animation
+            full_path = '/Users/zacharyanderson/Unity-workspace/Electric-Sheep/images/' + animation
             self.animations[animation] = import_folder(full_path)

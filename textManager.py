@@ -5,10 +5,10 @@ class TextManager:
     def __init__(self):
         self.font = pygame.font.Font('freesansbold.ttf', 16)
 
-        self.answerOneMessage = "I am Burgermeister's daughter and care taker. I maintain all of his communications and schedule his appointments."
-        self.answerTwoMessage = "The morning of I could not find Burgermeister any where in the Tower and this was very strange becasue he never leaves the Tower, so I call the authorities."
-        self.answerThreeMessage = "I last saw Burgermeister the night before. I gave him his night time tea before bed and read him a story till he fell asleep."
-        self.answerFourMessage = "I actually overheard Burgermeiseter talking with his real daughter the night before and had plans to meet her outside of the tower."
+        self.answerOneMessage = "I am made in the image of Burgermeisters deceased daughter and I maintain all of his communications and life tasks."
+        self.answerTwoMessage = "The morning of I could not find Burgermeister any where in the Tower and this was very strange becasue he never leaves the Tower, so I called the authorities."
+        self.answerThreeMessage = "I last saw Burgermeister the night before. IHe was just finishing his work for the day in his War Room."
+        self.answerFourMessage = "I read in Burgermeister's communications that he planned to meet with his daughter in secret outside of the Fortress, but did not specify why."
         self.snip = self.font.render('', True, 'white')
         self.counter = 0
         self.counterOne = 0
