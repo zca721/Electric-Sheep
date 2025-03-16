@@ -22,6 +22,7 @@ class Level:
         self.nonplayer = Nonplayer((1200, 80), self.all_sprites, self.collision_sprites)
 
     def run(self, delta_time):
-        self.display_surface.fill('white')
+        # self.display_surface.fill('white')
         self.all_sprites.draw(self.display_surface)
         self.all_sprites.update(delta_time)
+
