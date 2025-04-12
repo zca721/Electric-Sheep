@@ -10,5 +10,5 @@ class Sprite(pygame.sprite.Sprite):
         self.rect.y = y
 
     def destroy(self):
-        print("destroy")
+        # print("destroy")
         self.kill()

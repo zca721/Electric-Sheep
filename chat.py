@@ -11,7 +11,7 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 class AIChat:
     def __init__(self):
-        self.font = pygame.font.Font('freesansbold.ttf', 16)
+        self.font = pygame.font.Font('freesansbold.ttf', SMALL_FONT)
         self.snip = self.font.render('', True, 'white')
         self.counter = 0
         self.speed = 3
@@ -19,33 +19,8 @@ class AIChat:
 
         self.textManager = TextManager()
 
-        # # Create the model
-        # self.generation_config = {
-        #     "temperature": 2,
-        #     # "temperature": 1,
-        #     # "temperature": 0,
-        #     "top_p": 0.95,
-        #     "top_k": 40,
-        #     "max_output_tokens": 8192,
-        #     "response_mime_type": "text/plain",
-        # }
-
-        # self.model = genai.GenerativeModel(
-        #     model_name="gemini-2.0-flash-exp",
-        #     generation_config=self.generation_config,
-        # #   system_instruction="A robot name Silvia, created after Burgermeister's dead daughter, educated, has perfect grammar and punctuation, unable to harm humans, responds in short responses. Burgermeister is a power hungry ruler in year 3030 of Metropolis City, has created lots of enemies, lives in a building called the Fortress and never leaves. Burgermeister has gone missing and Silvia was the one to find out he was missing.",
-        #     system_instruction= f"A robot named Silvia 2.0, created in the image of the dead daughter of Burgermeister, her name is Silvia Jade."
-        #                         f"Educated, has perfect grammar and punctuation, unable to harm humans, responds in no more than 150 characters."
-        #                         # f"educated, has perfect grammar and punctuation, unable to harm humans, responds in short responses."
-        #                         f"Burgermeister is a power hungry ruler in year 3030 of Metropolis City, has created lots of enemies, lives in a building called the Fortress and never leaves."
-        #                         f"Burgermeister has recently discovered that his daughter is not actually dead."
-        #                         f"Burgermeister has gone missing and Silvia was the one to find out he was missing."
-        #                         # f"When asked about Burgermiesters daughter who passed away, reviel you know that she is alive and contacted Burgermeister the day before to meet up with him in secret",
-        #                         f"Is connected to all of Burgermeisters technology and is aware of all communications.",
-
-        # )
-
-        self.history = []
+        self.historySilviaAI = []
+        self.historySilviaJade = []
 
     def nonscriptedResponse(self, screen, question, npc):
 
@@ -125,12 +100,17 @@ class AIChat:
         text.write("User Input: " + user_input + "\n" + "\n")
         text.close()
 
-        chat_session = model.start_chat(
-            history = self.history
-        )
+        # chat_session = model.start_chat(
+        #     history = self.history
+        # )
+
+        if npc == "Silvia 2.0":
+            chat_session = model.start_chat(history = self.historySilviaAI)
+        elif npc == "Silvia Jade":
+            chat_session = model.start_chat(history = self.historySilviaJade)
 
         response = chat_session.send_message(user_input)
-        # response = self.model.generate_content(user_input)
+        # response = model.generate_content(user_input)
 
         model_response = response.text
 
@@ -152,10 +132,25 @@ class AIChat:
 
         inputList.clear()
 
-        self.history.append({"role": "user", "parts": [user_input]})
-        self.history.append({"role": "model", "parts": [model_response]})
+        # self.history.append({"role": "user", "parts": [user_input]})
+        # self.history.append({"role": "model", "parts": [model_response]})
+
+        # Stores each NPCs individual conversations and builds further on there story
+        if npc == "Silvia 2.0":
+            self.historySilviaAI.append({"role": "user", "parts": [user_input]})
+            self.historySilviaAI.append({"role": "model", "parts": [model_response]})
+            print("NPC" + npc)
+            print(self.historySilviaAI)
+        elif npc == "Silvia Jade":
+            self.historySilviaJade.append({"role": "user", "parts": [user_input]})
+            self.historySilviaJade.append({"role": "model", "parts": [model_response]})
+            print("NPC" + npc)
+            print(self.historySilviaJade)
 
         # print(self.history)
+
+        # Print statement for google gemini storing chat history
+        # print(chat_session.history)
 
 # ORIGINAL CODE FOR GOOGLE GEMINI API TO DISPLAY THROUGH CONSOLE
 # # Create the model
