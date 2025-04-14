@@ -3,8 +3,8 @@ from settings import *
 
 class Button:
     def __init__(self, x, y, width, height, text, color, highlighted_color, action=None):
+        pygame.init()
         self.font = pygame.font.Font('freesansbold.ttf', SMALL_FONT)
-
         self.mainMenuFont = pygame.font.Font('freesansbold.ttf', MAIN_MENU_FONT)
 
         self.rect = pygame.Rect(x, y, width, height)

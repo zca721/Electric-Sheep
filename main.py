@@ -1,5 +1,7 @@
 import pygame, sys, time
 from settings import *
+from questions import *
+from buttons import *
 from level import Level
 from textManager import TextManager
 from buttonManager import Button
@@ -32,75 +34,13 @@ class Game:
         self.aiChat = AIChat()
         self.sprites = pygame.sprite.Group()
 
-        # Questions for google gemini response for nonscripted NPC
-        # Silvia 2.0 interrogation questions
-        self.questionOneSilviaAI = "What is your relationship with Burgermeister?"
-        self.questionTwoSilviaAI = "What happened when you found Burgermeister missing?"
-        self.questionThreeSilviaAI = "When was the last time you saw Burgermeister?"
-        self.questionFourSilviaAI = "Did you know that Burgermeister’s real daughter is still alive?"
-
-        # Silvia Jade interrogation questions
-        self.questionOneSilviaHuman = "Is Burgermeister your father?"
-        self.questionTwoSilviaHuman = "Why did you escape from the Fortress and fake your own death?"
-        self.questionThreeSilviaHuman = "Did you plan to meet with Burgermeister in secret?"
-        self.questionFourSilviaHuman = "So you never met up with Burgermeister?"
-
-        # Display text in iterrogation
-        self.selectSuspect = "SELECT SUSPECT"
-        self.selectQuestion = "SELECT INTERROGATION QUESTION"
-
-        # Display text in mani menu
-        self.electricSheepTitle = "ELECTRIC SHEEP"
-
-        # Buttons for selecting an NPC to interrogate
-        self.aiSilvia = Button(BUTTON_AI_SILVIA_X, BUTTON_AI_SILVIA_Y, BUTTON_AI_SILVIA_WIDTH, BUTTON_AI_SILVIA_HEIGHT,
-                               "Silvia 2.0",
-                               'white', 'grey', action=None)
-        self.humanSilvia = Button(BUTTON_HUMAN_SILVIA_X, BUTTON_HUMAN_SILVIA_Y, BUTTON_HUMAN_SILVIA_WIDTH, BUTTON_HUMAN_SILVIA_HEIGHT,
-                                "Silvia Jade",
-                                'white', 'grey', action=None)
-
-        # Buttons for Silvia 2.0 interrogation questions
-        self.questionOneButtonSilviaAI = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
-                                        "What is your relationship with Burgermeister?",
-                                        'white', 'grey', action=None)
-        self.questionTwoButtonSilviaAI = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
-                                        "What happened when you found Burgermeister missing?",
-                                        'white', 'grey', action=None)
-        self.questionThreeButtonSilviaAI = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
-                                        "When was the last time you saw Burgermeister?",
-                                        'white', 'grey', action=None)
-        self.questionFourButtonSilviaAI = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
-                                        "Did you know that Burgermeister’s real daughter is still alive?",
-                                        'white', 'grey', action=None)
-        self.hideQuestionFourSilviaAI = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
-                                        "",
-                                        'white', 'gray', action=None)
-        
-        # Buttons for Silvia Jade interrogation questions
-        self.questionOneButtonSilviaHuman = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
-                                        "Is Burgermeister your father?",
-                                        'white', 'grey', action=None)
-        self.questionTwoButtonSilviaHuman = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
-                                        "Why did you escape from the Fortress and fake your own death?",
-                                        'white', 'grey', action=None)
-        self.questionThreeButtonSilviaHuman = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
-                                        "Did you plan to meet with Burgermeister in secret?",
-                                        'white', 'grey', action=None)
-        self.questionFourButtonSilviaHuman = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
-                                        "So you never met up with Burgermeister?",
-                                        'white', 'grey', action=None)
-        self.hideQuestionFourSilviaHuman = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
-                                        "",
-                                        'white', 'gray', action=None)
-        
-        # Main menu buttons
-        self.startGame = Button(START_GAME_X, START_GAME_Y, START_GAME_WIDTH, START_GAME_HEIGHT,
-                                        "START GAME",
-                                        'white', 'gray', action=None)
-        
         # Text based variables
-        self.displayText = False
+        self.displayAnswer = False
+        self.stage = 0
+        self.slotOne = 1
+        self.slotTwo = 2
+        self.slotThree = 3
+        self.slotFour = 4
         self.question = 0
         self.questionOneString = 1
         self.questionTwoString = 2
@@ -109,8 +49,35 @@ class Game:
         self.secretString = 7
         self.blankMessage = ""
 
+        # Display text in main menu
+        self.electricSheepTitle = "ELECTRIC SHEEP"
+
+        # Display text in iterrogation
+        self.selectSuspect = "SELECT SUSPECT"
+        self.selectQuestion = "SELECT INTERROGATION QUESTION"
+        self.stageDisplay = "STAGE "
+
         # NPC based variables
         self.npc = " "
+        self.npcSelect = " "
+
+    # Helper functions
+    # Builds secret string for each stage
+    def stages(self, questionSlot, npc):
+        if questionSlot == 1:
+            self.buildString = self.buildString | self.questionOneString
+        elif questionSlot == 2:
+            self.buildString = self.buildString | self.questionTwoString
+        elif questionSlot == 3:
+            self.buildString = self.buildString | self.questionThreeString
+        elif questionSlot == 4:
+            self.buildString = 0
+            if npc == "Silvia 2.0":
+                self.npcSelect = "Silvia Jade" # Allows for NPC to be selected after secret question is asked
+            elif npc == "Silvia Jade":
+                self.npcSelect = "Silvia 2.0" # Allows for NPC to be selected after secret question is asked
+        
+        self.displayAnswer = True
 
     def run(self):
 
@@ -129,7 +96,7 @@ class Game:
                 # Scenemanager for event
                 if self.scene == "main_menu":
                     self.screen.fill('black')
-                    if self.startGame.handle_event(event):
+                    if startGame.handle_event(event):
                         self.scene = "interrogation"
 
                 elif self.scene == "interrogation":
@@ -138,12 +105,12 @@ class Game:
                     self.sprites.draw(self.screen)
 
                     # Depending on what NPC is clicked display associated questions
-                    if self.aiSilvia.handle_event(event):
+                    if aiSilvia.handle_event(event):
                         self.npc = "Silvia 2.0"
-                        self.displayText = False
+                        self.displayAnswer = False
                         self.question = 0
                         self.buildString = 0
-                        self.textManager.displayText(self.screen, self.blankMessage) # Hides answer
+                        self.textManager.displayAnswer(self.screen, self.blankMessage) # Hides answer
 
                         # Displays sprite image
                         self.spriteSilviaHuman.destroy()
@@ -154,12 +121,12 @@ class Game:
                         # print(self.spriteSilviaAI)
                         # print(self.spriteSilviaHuman)
 
-                    elif self.humanSilvia.handle_event(event):
+                    elif humanSilvia.handle_event(event):
                         self.npc = "Silvia Jade"
-                        self.displayText = False
+                        self.displayAnswer = False
                         self.question = 0
                         self.buildString = 0
-                        self.textManager.displayText(self.screen, self.blankMessage) # Hides answer
+                        self.textManager.displayAnswer(self.screen, self.blankMessage) # Hides answer
 
                         # Displays sprite image
                         self.spriteSilviaAI.destroy()
@@ -172,129 +139,363 @@ class Game:
 
                     # Handles events for Silvia 2.0
                     if self.npc == "Silvia 2.0":
-                        if self.buildString == self.secretString:
-                            self.questionFourButtonSilviaAI.handle_event(event)
-                            if self.questionFourButtonSilviaAI.handle_event(event):
-                                self.question = 4
-                                self.displayText = True
-                                self.buildString = 0
+                        # Stage 0
+                        if self.stage == 0:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionOneButtonSilviaAI.handle_event(event):
+                                self.question = 1
+                                self.stages(self.slotOne, self.npc)
 
-                        # Depending on what question is clicked a answer will be given with Silvia 2.0
-                        if self.questionOneButtonSilviaAI.handle_event(event):
-                            self.question = 1
-                            self.displayText = True
-                            self.buildString = self.buildString | self.questionOneString
+                            elif questionTwoButtonSilviaAI.handle_event(event):
+                                self.question = 2
+                                self.stages(self.slotTwo, self.npc)
 
-                        elif self.questionTwoButtonSilviaAI.handle_event(event):
-                            self.question = 2
-                            self.displayText = True
-                            self.buildString = self.buildString | self.questionTwoString
+                            elif questionThreeButtonSilviaAI.handle_event(event):
+                                self.question = 3
+                                self.stages(self.slotThree, self.npc)
 
-                        elif self.questionThreeButtonSilviaAI.handle_event(event):
-                            self.question = 3
-                            self.displayText = True
-                            self.buildString = self.buildString | self.questionThreeString
+                            if self.buildString == self.secretString:
+                                if questionFourButtonSilviaAI.handle_event(event):
+                                    self.question = 4
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 1
+                        # Stage 2
+                        elif self.stage == 2:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionFiveButtonSilviaAI.handle_event(event):
+                                self.question = 5
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionSixButtonSilviaAI.handle_event(event):
+                                self.question = 6
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionSevenButtonSilviaAI.handle_event(event):
+                                self.question = 7
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionEightButtonSilviaAI.handle_event(event):
+                                    self.question = 8
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 3
+                        # Stage 4
+                        elif self.stage == 4:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionNineButtonSilviaAI.handle_event(event):
+                                self.question = 9
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionTenButtonSilviaAI.handle_event(event):
+                                self.question = 10
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionElevenButtonSilviaAI.handle_event(event):
+                                self.question = 11
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwelveButtonSilviaAI.handle_event(event):
+                                    self.question = 12
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 5
+                        # Stage 6
+                        elif self.stage == 6:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionThirteenButtonSilviaAI.handle_event(event):
+                                self.question = 13
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionFourteenButtonSilviaAI.handle_event(event):
+                                self.question = 14
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionFifteenButtonSilviaAI.handle_event(event):
+                                self.question = 15
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionSixteenButtonSilviaAI.handle_event(event):
+                                    self.question = 16
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 7
 
                     # Handles events for Silvia Jade
                     if self.npc == "Silvia Jade":
-                        if self.buildString == self.secretString:
-                            self.questionFourButtonSilviaHuman.handle_event(event)
-                            if self.questionFourButtonSilviaHuman.handle_event(event):
-                                self.question = 4
-                                self.displayText = True
-                                self.buildString = 0
+                        # Stage 1
+                        if self.stage == 1:
+                            # Depending on what question is clicked a answer will be given
+                            if questionOneButtonSilviaHuman.handle_event(event):
+                                self.question = 1
+                                self.stages(self.slotOne, self.npc)
 
-                        # Depending on what question is clicked a answer will be given
-                        if self.questionOneButtonSilviaHuman.handle_event(event):
-                            self.question = 1
-                            self.displayText = True
-                            self.buildString = self.buildString | self.questionOneString
+                            elif questionTwoButtonSilviaHuman.handle_event(event):
+                                self.question = 2
+                                self.stages(self.slotTwo, self.npc)
 
-                        elif self.questionTwoButtonSilviaHuman.handle_event(event):
-                            self.question = 2
-                            self.displayText = True
-                            self.buildString = self.buildString | self.questionTwoString
+                            elif questionThreeButtonSilviaHuman.handle_event(event):
+                                self.question = 3
+                                self.stages(self.slotThree, self.npc)
 
-                        elif self.questionThreeButtonSilviaHuman.handle_event(event):
-                            self.question = 3
-                            self.displayText = True
-                            self.buildString = self.buildString | self.questionThreeString
+                            if self.buildString == self.secretString:
+                                if questionFourButtonSilviaHuman.handle_event(event):
+                                    self.question = 4
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 2
+                        # Stage 3
+                        elif self.stage == 3:
+                            # Depending on what question is clicked a answer will be given
+                            if questionFiveButtonSilviaHuman.handle_event(event):
+                                self.question = 5
+                                self.stages(self.slotOne, self.npc)
 
-            # Used for moving portion of game
+                            elif questionSixButtonSilviaHuman.handle_event(event):
+                                self.question = 6
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionSevenButtonSilviaHuman.handle_event(event):
+                                self.question = 7
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionEightButtonSilviaHuman.handle_event(event):
+                                    self.question = 8
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 4
+                        # Stage 5
+                        elif self.stage == 5:
+                            # Depending on what question is clicked a answer will be given
+                            if questionNineButtonSilviaHuman.handle_event(event):
+                                self.question = 9
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionTenButtonSilviaHuman.handle_event(event):
+                                self.question = 10
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionElevenButtonSilviaHuman.handle_event(event):
+                                self.question = 11
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwelveButtonSilviaHuman.handle_event(event):
+                                    self.question = 12
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 6
+                        # Stage 7
+                        elif self.stage == 7:
+                            # Depending on what question is clicked a answer will be given
+                            if questionThirteenButtonSilviaHuman.handle_event(event):
+                                self.question = 13
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionFourteenButtonSilviaHuman.handle_event(event):
+                                self.question = 14
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionFifteenButtonSilviaHuman.handle_event(event):
+                                self.question = 15
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionSixteenButtonSilviaHuman.handle_event(event):
+                                    self.question = 16
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 8
+
+            # Used for timing of game
             # delta_time = self.clock.tick() / 1000
             # self.level.run(delta_time)
 
             # Scenemanager for while loop
             if self.scene == "main_menu":
-                self.startGame.drawMainMenu(self.screen)
-                self.textManager.titleDisplayText(self.screen, self.electricSheepTitle, ELECTRIC_SHEEP_X, ELECTRIC_SHEEP_Y, ELECTRIC_SHEEP_WIDTH, ELECTRIC_SHEEP_HEIGHT)
+                startGame.drawMainMenu(self.screen)
+                self.textManager.displayRedText(self.screen, self.electricSheepTitle,
+                                                  ELECTRIC_SHEEP_X, ELECTRIC_SHEEP_Y, ELECTRIC_SHEEP_WIDTH, ELECTRIC_SHEEP_HEIGHT,
+                                                  "title")
 
             elif self.scene == "interrogation":
                 # Keeps sprite images in sprites group being continuously displayed if in group
                 self.sprites.update()
 
-                # Display NPC names to select from
-                self.aiSilvia.draw(self.screen)
-                self.humanSilvia.draw(self.screen)
+                # Display NPC names to select from based off npc name string
+                if self.npcSelect == " " or self.npcSelect == "Silvia 2.0":
+                    aiSilvia.draw(self.screen)
+                elif self.npcSelect == "Silvia Jade":
+                    humanSilvia.draw(self.screen)
 
                 # Display interrogation big font
-                self.textManager.mediumDisplayText(self.screen, self.selectSuspect, SUSPECT_X, SUSPECT_Y, SUSPECT_WIDTH, SUSPECT_HEIGHT)
-                self.textManager.mediumDisplayText(self.screen, self.selectQuestion, QUESTION_X, QUESTION_Y, QUESTION_WIDTH, QUESTION_HEIGHT)
+                self.textManager.displayRedText(self.screen, self.selectSuspect,
+                                                   SUSPECT_X, SUSPECT_Y, SUSPECT_WIDTH, SUSPECT_HEIGHT,
+                                                   "small")
+                self.textManager.displayRedText(self.screen, self.selectQuestion,
+                                                   QUESTION_X, QUESTION_Y, QUESTION_WIDTH, QUESTION_HEIGHT,
+                                                   "small")
+                self.textManager.displayRedText(self.screen, self.stageDisplay + str(self.stage),
+                                                    STAGE_X, STAGE_Y, STAGE_WIDTH, STAGE_HEIGHT,
+                                                    "medium")
 
                 # Display questions as buttons
                 if self.npc == "Silvia 2.0":
-                    self.questionOneButtonSilviaAI.draw(self.screen)
-                    self.questionTwoButtonSilviaAI.draw(self.screen)
-                    self.questionThreeButtonSilviaAI.draw(self.screen)
+                    # Stage 0
+                    if self.stage == 0:
+                        questionOneButtonSilviaAI.draw(self.screen)
+                        questionTwoButtonSilviaAI.draw(self.screen)
+                        questionThreeButtonSilviaAI.draw(self.screen)
 
-                    if self.buildString == self.secretString:
-                        self.questionFourButtonSilviaAI.draw(self.screen)
-                    else:
-                        self.hideQuestionFourSilviaAI.draw(self.screen)
+                        if self.buildString == self.secretString:
+                            questionFourButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 2
+                    elif self.stage == 2:
+                        questionFiveButtonSilviaAI.draw(self.screen)
+                        questionSixButtonSilviaAI.draw(self.screen)
+                        questionSevenButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionEightButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 4
+                    elif self.stage == 4:
+                        questionNineButtonSilviaAI.draw(self.screen)
+                        questionTenButtonSilviaAI.draw(self.screen)
+                        questionElevenButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwelveButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 6
+                    elif self.stage == 6:
+                        questionThirteenButtonSilviaAI.draw(self.screen)
+                        questionFourteenButtonSilviaAI.draw(self.screen)
+                        questionFifteenButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionSixteenButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
                 
                 elif self.npc == "Silvia Jade":
-                    self.questionOneButtonSilviaHuman.draw(self.screen)
-                    self.questionTwoButtonSilviaHuman.draw(self.screen)
-                    self.questionThreeButtonSilviaHuman.draw(self.screen)
+                    # Stage 1
+                    if self.stage == 1:
+                        questionOneButtonSilviaHuman.draw(self.screen)
+                        questionTwoButtonSilviaHuman.draw(self.screen)
+                        questionThreeButtonSilviaHuman.draw(self.screen)
 
-                    if self.buildString == self.secretString:
-                        self.questionFourButtonSilviaHuman.draw(self.screen)
-                    else:
-                        self.hideQuestionFourSilviaHuman.draw(self.screen)
+                        if self.buildString == self.secretString:
+                            questionFourButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 3
+                    elif self.stage == 3:
+                        questionFiveButtonSilviaHuman.draw(self.screen)
+                        questionSixButtonSilviaHuman.draw(self.screen)
+                        questionSevenButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionEightButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 5
+                    elif self.stage == 5:
+                        questionNineButtonSilviaHuman.draw(self.screen)
+                        questionTenButtonSilviaHuman.draw(self.screen)
+                        questionElevenButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwelveButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 7
+                    elif self.stage == 7:
+                        questionThirteenButtonSilviaHuman.draw(self.screen)
+                        questionFourteenButtonSilviaHuman.draw(self.screen)
+                        questionFifteenButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionSixteenButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
                     
                 # Depending on even above a answer will be returned
-                if self.displayText == True:
+                if self.displayAnswer == True:
                     # Scripted NPC response
                     self.textManager.scriptedResponse(self.screen, self.question, self.npc)
-                    self.displayText = False
+                    self.displayAnswer = False
 
                     # Nonscripted NPC response
                     # if self.npc == "Silvia 2.0":
                     #     if self.question == 1:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionOneSilviaAI, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaAI, self.npc)                            
                     #     elif self.question == 2:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionTwoSilviaAI, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaAI, self.npc)                           
                     #     elif self.question == 3:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionThreeSilviaAI, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaAI, self.npc)                            
                     #     elif self.question == 4:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionFourSilviaAI, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaAI, self.npc)                           
+                    #     elif self.question == 5:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaAI, self.npc)                           
+                    #     elif self.question == 6:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaAI, self.npc)                           
+                    #     elif self.question == 7:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaAI, self.npc)                           
+                    #     elif self.question == 8:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaAI, self.npc)                           
+                    #     elif self.question == 9:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaAI, self.npc)                            
+                    #     elif self.question == 10:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaAI, self.npc)                           
+                    #     elif self.question == 11:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaAI, self.npc)                           
+                    #     elif self.question == 12:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaAI, self.npc)                           
+                    #     elif self.question == 13:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaAI, self.npc)                           
+                    #     elif self.question == 14:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaAI, self.npc)                           
+                    #     elif self.question == 15:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaAI, self.npc)                           
+                    #     elif self.question == 16:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaAI, self.npc)                           
+
                     # elif self.npc == "Silvia Jade":
                     #     if self.question == 1:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionOneSilviaHuman, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaHuman, self.npc)                       
                     #     elif self.question == 2:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionTwoSilviaHuman, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaHuman, self.npc)                           
                     #     elif self.question == 3:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionThreeSilviaHuman, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaHuman, self.npc)                           
                     #     elif self.question == 4:
-                    #         self.aiChat.nonscriptedResponse(self.screen, self.questionFourSilviaHuman, self.npc)
-                    #         self.displayText = False
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaHuman, self.npc)                           
+                    #     elif self.question == 5:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaHuman, self.npc)                           
+                    #     elif self.question == 6:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaHuman, self.npc)                           
+                    #     elif self.question == 7:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaHuman, self.npc)                            
+                    #     elif self.question == 8:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaHuman, self.npc)                           
+                    #     elif self.question == 9:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaHuman, self.npc)                            
+                    #     elif self.question == 10:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaHuman, self.npc)                           
+                    #     elif self.question == 11:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaHuman, self.npc)                           
+                    #     elif self.question == 12:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaHuman, self.npc)                           
+                    #     elif self.question == 13:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaHuman, self.npc)                            
+                    #     elif self.question == 14:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaHuman, self.npc)                            
+                    #     elif self.question == 15:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaHuman, self.npc)                            
+                    #     elif self.question == 16:
+                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaHuman, self.npc)
+                            
+                    self.displayAnswer = False
                     
             pygame.display.flip()
             pygame.display.update()
