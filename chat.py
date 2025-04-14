@@ -84,9 +84,9 @@ class AIChat:
 
                                     f"You loved your father as a child, but as you grew older and wiser, you grew to resent him and all he stands for."
                                     f"At the age of 18, you came up with a plan to escape the Fortress by faking your death on a routine trip you make yearly for robotic supplies."
-                                    f"In secret you were conversating with the notorious hacker groug The Awakening, a group working to free all robots from there oppressors."
+                                    f"In secret you were conversating with the notorious hacker group The Awakening, a group working to free all robots from there oppressors."
                                     f"You figured faking your death was the best possibility for escaping the clutches of your father, otherwise he and his endless army would forever be searching for you."
-                                    f"If anyone refers to Burgermeister as your father, you become enraged and lash out, due to the trama he has put you through and what you have witnessed him do."
+                                    f"If anyone refers to Burgermeister as your father, you become enraged and lash out, due to the trauma he has put you through and what you have witnessed him do."
 
             )
 
@@ -100,10 +100,6 @@ class AIChat:
         text.write("User Input: " + user_input + "\n" + "\n")
         text.close()
 
-        # chat_session = model.start_chat(
-        #     history = self.history
-        # )
-
         if npc == "Silvia 2.0":
             chat_session = model.start_chat(history = self.historySilviaAI)
         elif npc == "Silvia Jade":
@@ -111,14 +107,9 @@ class AIChat:
 
         response = chat_session.send_message(user_input)
         # response = model.generate_content(user_input)
-
         model_response = response.text
-
         inputList = model_response.split("\n")
 
-        # print(f'Silvia: {model_response}')
-        # print(model_response)
-        # print(stringResponse)
         print(inputList[0])
         print()
 
@@ -126,14 +117,10 @@ class AIChat:
         text.write(npc + ": " + inputList[0] + "\n")
         text.close()
 
-        # self.textManager.displayText(screen, model_response)
-        # self.textManager.displayText(screen, stringResponse)
-        self.textManager.displayText(screen, inputList[0])
-
+        # Sends first index on inputlist which gives the text of the response minus the rectangle afterwards
+        self.textManager.displayAnswer(screen, inputList[0])
+        # Clears input list response is in first index every time
         inputList.clear()
-
-        # self.history.append({"role": "user", "parts": [user_input]})
-        # self.history.append({"role": "model", "parts": [model_response]})
 
         # Stores each NPCs individual conversations and builds further on there story
         if npc == "Silvia 2.0":

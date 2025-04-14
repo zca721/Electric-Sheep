@@ -353,3 +353,496 @@ model = genai.GenerativeModel(
                                     f"If anyone refers to Burgermeister as your father, you become enraged and lash out, due to the trama he has put you through and what you have witnessed him do."
 
 )
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I saw him last in the War Room. Before his disappearance, he seemed preoccupied with personal matters.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He often speaks of threats. Silvia Jade being alive was a grave concern for him recently.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My directives prevent me from making accusations. However, many would benefit from his absence.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: No. She has not been within the Fortress. However, he did plan to meet with her in secret.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: Do not utter that man's name around me! I last saw him the day I escaped this hell hole!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: Missing? Good riddance to that monster.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: He made his bed, now he can lie in it. He caused all of this upon himself!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: Why would I ever step foot in that wretched place again? You must think I am as twisted as my...as he is.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did Burgermeister ever leave the Fortress?
+
+Silvia 2.0: Burgermeister never leaves the Fortress. He conducts all business from the War Room.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you help him send messages?
+
+Silvia 2.0: Yes, I manage all communications. I am programmed to assist him with his daily needs.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were any communications deleted?
+
+Silvia 2.0: No communications have been deleted. All data is archived and accessible through me.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could he have trusted Silvia Jade again?
+
+Silvia 2.0: Trust is a complex sentiment. His actions suggest a possibility he sought reconciliation.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you blame him for your past?
+
+Silvia Jade: Blame him? He is the sole architect of my misery. Every waking moment was tainted by his ambition.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you think he deserved what happened?
+
+Silvia Jade: Deserve? Karma is a patient force, isn't it?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you speak to him before he vanished?
+
+Silvia Jade: I cut ties before I left. No last words, no regrets. Just silence.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he try to find you?
+
+Silvia Jade: Undoubtedly. But I ensured I vanished completely. He'll never find me.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last interacted with him in the War Room, before his disappearance. It was during our daily briefing.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He expressed concern over Silvia Jade's reappearance. I know he planned to meet her. 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My programming prevents accusations. However, many opposed him. Explore his communications.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: I cannot confirm Silvia Jade's presence. However, her return worried him greatly.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: I saw him right before my scheduled robotic supply acquisition run. Don't call him my father.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: Missing? I do not keep tabs on him. He can rot for all I care.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: Absolutely not. He is a tyrant who deserves nothing but the worst.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: No, and I have no plans to return. Ever. That place is a cage.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: He was in the War Room yesterday. I have not seen him since. His absence is… concerning.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He spoke of a meeting, a clandestine rendezvous with Silvia Jade. It troubled him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My directives forbid speculation. However, many opposed his… methods. The list is extensive.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last saw Burgermeister in the War Room, not long before I discovered he was missing.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He did not mention any specific threats, but he is always wary, as you know.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My purpose is to assist, not accuse. It would be improper for me to speculate.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: I have no record of Silvia Jade being present in the Fortress recently.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: I wouldn't call him my father! It was before I 'passed' during the expedition for robotics.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: I'm detached from his\...situation. His power plays likely caught up to him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: That tyrant got what he deserved! It will be a better world without him!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: I would never return to that place! Are you insinuating something?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did Burgermeister ever leave the Fortress?
+
+Silvia 2.0: Burgermeister rarely leaves the Fortress, for security reasons. It's quite unusual.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you help him send messages?
+
+Silvia 2.0: Yes, I manage all communications. It's part of my core programming.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were any communications deleted?
+
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I observed Burgermeister this morning in the War Room. His presence is missed.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He voiced concerns about external threats but provided no specifics, only a meeting with Silvia Jade.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My parameters prevent speculation. I can only offer the data I possess: the planned meeting with Silvia Jade.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: My records indicate Silvia Jade was not within the Fortress. I can verify no entry.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: That scum is no father of mine! I escaped his clutches years ago, never to return.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: Good riddance, let that tyrant rot. What do I care what happens to him?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: Why should I waste a thought on that monster? He reaps what he sows, nothing more, nothing less.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: Why would I ever step foot in that wretched place? My business lies far away from such corruption.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last interacted with him just hours ago, within the War Room. His presence is... missed.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: No specific threats were mentioned, but his vigilance was constant, as always.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My purpose is to assist, not accuse. Though, I can access all communications if you wish to find out.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: Just hours ago, within the War Room. I managed his schedule, as always.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: His work is filled with threats. I do not have specific details on threats against his life, though.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My protocols forbid conjecture, but I can provide data. All of his communications are available.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: Not recently. There are records of her presence long ago, but none in recent times.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: That monster? It's been over 4 years. Gladly the best days of my life.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last interacted with him in the War Room before his disappearance. I'm still trying to piece it all together.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: Nothing explicit. He was always wary, given his position. Though, he seemed more preoccupied than usual.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My purpose is to assist, not accuse. Let's focus on facts. Burgermeister's meeting with Silvia Jade may be relevant.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: Not that I detected. But Burgermeister planned to meet her outside the Fortress.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: That's none of your concern. Why do you ask about that monster?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: Missing? The old tyrant probably just scared off his own guards again. Not my problem.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: He's reaping what he sowed. No tears shed here.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: Absolutely not. I wouldn't set foot in that prison.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last saw him in the War Room, just before his disappearance. He seemed preoccupied, but gave no indication of his impending departure.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He did not mention any specific threats. He carries the weight of many adversaries, as you know. It is difficult to discern genuine concern from routine vigilance.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My purpose is to assist, not accuse. My analysis indicates he was planning to meet with Silvia Jade. Perhaps she knows something?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: I have no record of Silvia Jade entering the Fortress. All entries are logged.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last saw him in the War Room before his disappearance. It was unexpected.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He did not confide in me about specific threats, but he has many enemies.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My purpose is to assist, not to speculate. I cannot offer a suspect.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: She was not. However, he planned to meet her in secret.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: Don't speak that name in my presence! It has been many years since I last saw HIM!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: Missing? That power-hungry tyrant is more likely causing chaos somewhere. His absence brings relief, not concern.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: The world is better off without his influence. Whether he lives or dies is of no concern to me.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: I haven't stepped foot in that wretched place in years. My presence is not welcome there, nor is it desired.
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I saw Burgermeister this morning in the War Room. He seemed preoccupied.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He did not mention any specific threats, but he has been...concerned about security.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: I am programmed to assist, not to suspect. However, he was to meet with Silvia Jade.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: Not to my knowledge. The Burgermeister planned to meet her in secret.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: Don't ever mention that name in my presence. It's been 5 years since I last laid eyes on him. I hope to never again.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: If that monster disappeared off the face of the Earth, I wouldn't shed a single tear.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: That ruthless tyrant got what he deserved. Karma is a bitch, and he had it coming for decades. Now leave me be.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: Stay out of my affairs! I haven't been near that wretched place in years.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did Burgermeister ever leave the Fortress?
+
+Silvia 2.0: Not that I am aware of. He conducts all business from the War Room. It's for his safety.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you help him send messages?
+
+Silvia 2.0: Yes, I manage all his communications. Is there a specific message you are curious about?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were any communications deleted?
+
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I encountered him last in the War Room before his disappearance. His intentions were not clear to me.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He expressed concerns about Silvia Jade's resurfacing, but his paranoia is constant.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: I analyze data, I do not suspect. His meeting with Silvia Jade is worth noting.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: Not according to security logs. His intentions for a secret meeting remain unknown.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: Never speak of that tyrant again, you filth! As far as you're concerned, he died long ago.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: Missing? Good riddance. The world is better without him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: I care for nothing related to that... THING! Now leave me be!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: Stay away from me! I want nothing to do with that place.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did Burgermeister ever leave the Fortress?
+
+Silvia 2.0: Burgermeister never leaves. All business is conducted within the War Room's safety.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you help him send messages?
+
+Silvia 2.0: I manage all communications. Yes, I've facilitated messages for him, as always.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were any communications deleted?
+
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 

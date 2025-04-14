@@ -57,6 +57,11 @@ QUESTION_Y = 75
 QUESTION_WIDTH = 500
 QUESTION_HEIGHT = 30
 
+STAGE_X = 695
+STAGE_Y = 65
+STAGE_WIDTH = 150
+STAGE_HEIGHT = 40
+
 # Interrogation display text for response from NPC
 ANSWER_X = 75
 ANSWER_Y = 780
