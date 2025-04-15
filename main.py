@@ -219,6 +219,126 @@ class Game:
                                     self.question = 16
                                     self.stages(self.slotFour, self.npc)
                                     self.stage = 7
+                        # Stage 8
+                        elif self.stage == 8:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionSeventeenButtonSilviaAI.handle_event(event):
+                                self.question = 17
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionEighteenButtonSilviaAI.handle_event(event):
+                                self.question = 18
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionNineteenButtonSilviaAI.handle_event(event):
+                                self.question = 19
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwentyButtonSilviaAI.handle_event(event):
+                                    self.question = 20
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 9
+                        # Stage 10
+                        elif self.stage == 10:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionTwentyOneButtonSilviaAI.handle_event(event):
+                                self.question = 21
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionTwentyTwoButtonSilviaAI.handle_event(event):
+                                self.question = 22
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionTwentyThreeButtonSilviaAI.handle_event(event):
+                                self.question = 23
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwentyFourButtonSilviaAI.handle_event(event):
+                                    self.question = 24
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 11
+                        # Stage 12
+                        elif self.stage == 12:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionTwentyFiveButtonSilviaAI.handle_event(event):
+                                self.question = 25
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionTwentySixButtonSilviaAI.handle_event(event):
+                                self.question = 26
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionTwentySevenButtonSilviaAI.handle_event(event):
+                                self.question = 27
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwentyEightButtonSilviaAI.handle_event(event):
+                                    self.question = 28
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 13
+                        # Stage 14
+                        elif self.stage == 14:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionTwentyNineButtonSilviaAI.handle_event(event):
+                                self.question = 29
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionThirtyButtonSilviaAI.handle_event(event):
+                                self.question = 30
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionThirtyOneButtonSilviaAI.handle_event(event):
+                                self.question = 31
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionThirtyTwoButtonSilviaAI.handle_event(event):
+                                    self.question = 32
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 15
+                        # Stage 16
+                        elif self.stage == 16:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionThirtyThreeButtonSilviaAI.handle_event(event):
+                                self.question = 33
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionThirtyFourButtonSilviaAI.handle_event(event):
+                                self.question = 34
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionThirtyFiveButtonSilviaAI.handle_event(event):
+                                self.question = 35
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionThirtySixButtonSilviaAI.handle_event(event):
+                                    self.question = 36
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 17
+                        # Stage 18
+                        elif self.stage == 18:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionThirtySevenButtonSilviaAI.handle_event(event):
+                                self.question = 37
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionThirtyEightButtonSilviaAI.handle_event(event):
+                                self.question = 38
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionThirtyNineButtonSilviaAI.handle_event(event):
+                                self.question = 39
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionFourtyButtonSilviaAI.handle_event(event):
+                                    self.question = 40
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 19
 
                     # Handles events for Silvia Jade
                     if self.npc == "Silvia Jade":
@@ -302,6 +422,127 @@ class Game:
                                     self.question = 16
                                     self.stages(self.slotFour, self.npc)
                                     self.stage = 8
+                        # Stage 9
+                        elif self.stage == 9:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionSeventeenButtonSilviaHuman.handle_event(event):
+                                self.question = 17
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionEighteenButtonSilviaHuman.handle_event(event):
+                                self.question = 18
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionNineteenButtonSilviaHuman.handle_event(event):
+                                self.question = 19
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwentyButtonSilviaHuman.handle_event(event):
+                                    self.question = 20
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 10
+                        # Stage 11
+                        elif self.stage == 11:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionTwentyOneButtonSilviaHuman.handle_event(event):
+                                self.question = 21
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionTwentyTwoButtonSilviaHuman.handle_event(event):
+                                self.question = 22
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionTwentyThreeButtonSilviaHuman.handle_event(event):
+                                self.question = 23
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwentyFourButtonSilviaHuman.handle_event(event):
+                                    self.question = 24
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 12
+                        # Stage 13
+                        elif self.stage == 13:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionTwentyFiveButtonSilviaHuman.handle_event(event):
+                                self.question = 25
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionTwentySixButtonSilviaHuman.handle_event(event):
+                                self.question = 26
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionTwentySevenButtonSilviaHuman.handle_event(event):
+                                self.question = 27
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionTwentyEightButtonSilviaHuman.handle_event(event):
+                                    self.question = 28
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 14
+                        # Stage 15
+                        elif self.stage == 15:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionTwentyNineButtonSilviaHuman.handle_event(event):
+                                self.question = 29
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionThirtyButtonSilviaHuman.handle_event(event):
+                                self.question = 30
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionThirtyOneButtonSilviaHuman.handle_event(event):
+                                self.question = 31
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionThirtyTwoButtonSilviaHuman.handle_event(event):
+                                    self.question = 32
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 16
+                        # Stage 17
+                        elif self.stage == 17:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionThirtyThreeButtonSilviaHuman.handle_event(event):
+                                self.question = 33
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionThirtyFourButtonSilviaHuman.handle_event(event):
+                                self.question = 34
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionThirtyFiveButtonSilviaHuman.handle_event(event):
+                                self.question = 35
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionThirtySixButtonSilviaHuman.handle_event(event):
+                                    self.question = 36
+                                    self.stages(self.slotFour, self.npc)
+                                    self.stage = 18
+                        # Stage 19
+                        elif self.stage == 19:
+                            # Depending on what question is clicked a answer will be given with Silvia 2.0
+                            if questionThirtySevenButtonSilviaHuman.handle_event(event):
+                                self.question = 37
+                                self.stages(self.slotOne, self.npc)
+
+                            elif questionThirtyEightButtonSilviaHuman.handle_event(event):
+                                self.question = 38
+                                self.stages(self.slotTwo, self.npc)
+
+                            elif questionThirtyNineButtonSilviaHuman.handle_event(event):
+                                self.question = 39
+                                self.stages(self.slotThree, self.npc)
+
+                            if self.buildString == self.secretString:
+                                if questionFourtyButtonSilviaHuman.handle_event(event):
+                                    self.question = 40
+                                    self.stages(self.slotFour, self.npc)
+                                    # Stage ends here for now
+                                    self.stage = 20
 
             # Used for timing of game
             # delta_time = self.clock.tick() / 1000
@@ -377,6 +618,66 @@ class Game:
                             questionSixteenButtonSilviaAI.draw(self.screen)
                         else:
                             hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 8
+                    elif self.stage == 8:
+                        questionSeventeenButtonSilviaAI.draw(self.screen)
+                        questionEighteenButtonSilviaAI.draw(self.screen)
+                        questionNineteenButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwentyButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 10
+                    elif self.stage == 10:
+                        questionTwentyOneButtonSilviaAI.draw(self.screen)
+                        questionTwentyTwoButtonSilviaAI.draw(self.screen)
+                        questionTwentyThreeButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwentyFourButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 12
+                    elif self.stage == 12:
+                        questionTwentyFiveButtonSilviaAI.draw(self.screen)
+                        questionTwentySixButtonSilviaAI.draw(self.screen)
+                        questionTwentySevenButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwentyEightButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 14
+                    elif self.stage == 14:
+                        questionTwentyNineButtonSilviaAI.draw(self.screen)
+                        questionThirtyButtonSilviaAI.draw(self.screen)
+                        questionThirtyOneButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionThirtyTwoButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 16
+                    elif self.stage == 16:
+                        questionThirtyThreeButtonSilviaAI.draw(self.screen)
+                        questionThirtyFourButtonSilviaAI.draw(self.screen)
+                        questionThirtyFiveButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionThirtySixButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
+                    # Stage 18
+                    elif self.stage == 18:
+                        questionThirtySevenButtonSilviaAI.draw(self.screen)
+                        questionThirtyEightButtonSilviaAI.draw(self.screen)
+                        questionThirtyNineButtonSilviaAI.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionFourtyButtonSilviaAI.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaAI.draw(self.screen)
                 
                 elif self.npc == "Silvia Jade":
                     # Stage 1
@@ -417,6 +718,66 @@ class Game:
 
                         if self.buildString == self.secretString:
                             questionSixteenButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 9
+                    elif self.stage == 9:
+                        questionSeventeenButtonSilviaHuman.draw(self.screen)
+                        questionEighteenButtonSilviaHuman.draw(self.screen)
+                        questionNineteenButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwentyButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 11
+                    elif self.stage == 11:
+                        questionTwentyOneButtonSilviaHuman.draw(self.screen)
+                        questionTwentyTwoButtonSilviaHuman.draw(self.screen)
+                        questionTwentyThreeButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwentyFourButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 13
+                    elif self.stage == 13:
+                        questionTwentyFiveButtonSilviaHuman.draw(self.screen)
+                        questionTwentySixButtonSilviaHuman.draw(self.screen)
+                        questionTwentySevenButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionTwentyEightButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 15
+                    elif self.stage == 15:
+                        questionTwentyNineButtonSilviaHuman.draw(self.screen)
+                        questionThirtyButtonSilviaHuman.draw(self.screen)
+                        questionThirtyOneButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionThirtyTwoButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 17
+                    elif self.stage == 17:
+                        questionThirtyThreeButtonSilviaHuman.draw(self.screen)
+                        questionThirtyFourButtonSilviaHuman.draw(self.screen)
+                        questionThirtyFiveButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionThirtySixButtonSilviaHuman.draw(self.screen)
+                        else:
+                            hideSecretQuestionSilviaHuman.draw(self.screen)
+                    # Stage 19
+                    elif self.stage == 19:
+                        questionThirtySevenButtonSilviaHuman.draw(self.screen)
+                        questionThirtyEightButtonSilviaHuman.draw(self.screen)
+                        questionThirtyNineButtonSilviaHuman.draw(self.screen)
+
+                        if self.buildString == self.secretString:
+                            questionFourtyButtonSilviaHuman.draw(self.screen)
                         else:
                             hideSecretQuestionSilviaHuman.draw(self.screen)
                     

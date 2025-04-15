@@ -57,6 +57,54 @@ class TextManager:
                 self.displayAnswer(screen, answerFifteenSilviaAI)
             elif question == 16:
                 self.displayAnswer(screen, answerSixteenSilviaAI)
+            elif question == 17:
+                self.displayAnswer(screen, answerSeventeenSilviaAI)
+            elif question == 18:
+                self.displayAnswer(screen, answerEighteenSilviaAI)
+            elif question == 19:
+                self.displayAnswer(screen, answerNineteenSilviaAI)
+            elif question == 20:
+                self.displayAnswer(screen, answerTwentySilviaAI)
+            elif question == 21:
+                self.displayAnswer(screen, answerTwentyOneSilviaAI)
+            elif question == 22:
+                self.displayAnswer(screen, answerTwentyTwoSilviaAI)
+            elif question == 23:
+                self.displayAnswer(screen, answerTwentyThreeSilviaAI)
+            elif question == 24:
+                self.displayAnswer(screen, answerTwentyFourSilviaAI)
+            elif question == 25:
+                self.displayAnswer(screen, answerTwentyFiveSilviaAI)
+            elif question == 26:
+                self.displayAnswer(screen, answerTwentySixSilviaAI)
+            elif question == 27:
+                self.displayAnswer(screen, answerTwentySevenSilviaAI)
+            elif question == 28:
+                self.displayAnswer(screen, answerTwentyEightSilviaAI)
+            elif question == 29:
+                self.displayAnswer(screen, answerTwentyNineSilviaAI)
+            elif question == 30:
+                self.displayAnswer(screen, answerThirtySilviaAI)
+            elif question == 31:
+                self.displayAnswer(screen, answerThirtyOneSilviaAI)
+            elif question == 32:
+                self.displayAnswer(screen, answerThirtyTwoSilviaAI)
+            elif question == 33:
+                self.displayAnswer(screen, answerThirtyThreeSilviaAI)
+            elif question == 34:
+                self.displayAnswer(screen, answerThirtyFourSilviaAI)
+            elif question == 35:
+                self.displayAnswer(screen, answerThirtyFiveSilviaAI)
+            elif question == 36:
+                self.displayAnswer(screen, answerThirtySixSilviaAI)
+            elif question == 37:
+                self.displayAnswer(screen, answerThirtySevenSilviaAI)
+            elif question == 38:
+                self.displayAnswer(screen, answerThirtyEightSilviaAI)
+            elif question == 39:
+                self.displayAnswer(screen, answerThirtyNineSilviaAI)
+            elif question == 40:
+                self.displayAnswer(screen, answerFourtySilviaAI)
 
         elif npc == "Silvia Jade":
             if question == 1:
@@ -91,6 +139,54 @@ class TextManager:
                 self.displayAnswer(screen, answerFifteenSilviaHuman)
             elif question == 16:
                 self.displayAnswer(screen, answerSixteenSilviaHuman)
+            elif question == 17:
+                self.displayAnswer(screen, answerSeventeenSilviaHuman)
+            elif question == 18:
+                self.displayAnswer(screen, answerEighteenSilviaHuman)
+            elif question == 19:
+                self.displayAnswer(screen, answerNineteenSilviaHuman)
+            elif question == 20:
+                self.displayAnswer(screen, answerTwentySilviaHuman)
+            elif question == 21:
+                self.displayAnswer(screen, answerTwentyOneSilviaHuman)
+            elif question == 22:
+                self.displayAnswer(screen, answerTwentyTwoSilviaHuman)
+            elif question == 23:
+                self.displayAnswer(screen, answerTwentyThreeSilviaHuman)
+            elif question == 24:
+                self.displayAnswer(screen, answerTwentyFourSilviaHuman)
+            elif question == 25:
+                self.displayAnswer(screen, answerTwentyFiveSilviaHuman)
+            elif question == 26:
+                self.displayAnswer(screen, answerTwentySixSilviaHuman)
+            elif question == 27:
+                self.displayAnswer(screen, answerTwentySevenSilviaHuman)
+            elif question == 28:
+                self.displayAnswer(screen, answerTwentyEightSilviaHuman)
+            elif question == 29:
+                self.displayAnswer(screen, answerTwentyNineSilviaHuman)
+            elif question == 30:
+                self.displayAnswer(screen, answerThirtySilviaHuman)
+            elif question == 31:
+                self.displayAnswer(screen, answerThirtyOneSilviaHuman)
+            elif question == 32:
+                self.displayAnswer(screen, answerThirtyTwoSilviaHuman)
+            elif question == 33:
+                self.displayAnswer(screen, answerThirtyThreeSilviaHuman)
+            elif question == 34:
+                self.displayAnswer(screen, answerThirtyFourSilviaHuman)
+            elif question == 35:
+                self.displayAnswer(screen, answerThirtyFiveSilviaHuman)
+            elif question == 36:
+                self.displayAnswer(screen, answerThirtySixSilviaHuman)
+            elif question == 37:
+                self.displayAnswer(screen, answerThirtySevenSilviaHuman)
+            elif question == 38:
+                self.displayAnswer(screen, answerThirtyEightSilviaHuman)
+            elif question == 39:
+                self.displayAnswer(screen, answerThirtyNineSilviaHuman)
+            elif question == 40:
+                self.displayAnswer(screen, answerFourtySilviaHuman)
 
     def displayAnswer(self, screen, message):
         pygame.draw.rect(screen, 'black', [ANSWER_X, ANSWER_Y, ANSWER_WIDTH, ANSWER_HEIGHT])
