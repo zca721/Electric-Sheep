@@ -846,3 +846,389 @@ NEW GAME SESSION:
 NEW GAME SESSION: 
 ----------------------------------------------------------------------------------------------------------------------------------------
 NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last saw him in the War Room approximately 14 hours ago. His presence is...missed.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He frequently speaks of threats. The tension is always palpable.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My purpose is to assist, not to accuse. His enemies are numerous.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was Silvia Jade in the Fortress recently?
+
+Silvia 2.0: That information is beyond my current parameters. I apologize.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia Jade: I last saw that monster 2 years before my departure from that damned Fortress! Don't speak of him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you know he’s missing?
+
+Silvia Jade: Missing? Good riddance, I say. Hope that tyrant rots. Deserves nothing more than a lonely death.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care what happened to him?
+
+Silvia Jade: Care? I couldn't give less of a damn what happened to that THING. His disappearance is good news, better for us all.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you in the Fortress recently?
+
+Silvia Jade: I have not been near that forsaken fortress for years. Do you take me for a fool?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did Burgermeister ever leave the Fortress?
+
+Silvia 2.0: Burgermeister rarely, if ever, leaves the Fortress.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you help him send messages?
+
+Silvia 2.0: Assisting with communications is part of my core programming.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were any communications deleted?
+
+Silvia 2.0: Deleted? Perhaps. System maintenance is a constant process.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could he have trusted Silvia Jade again?
+
+Silvia 2.0: Trust is a complex calculation, even for Burgermeister.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you blame him for your past?
+
+Silvia Jade: Blame him? He is the CAUSE of my past. My trauma, my pain - all his fault. Every last bit.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you think he deserved what happened?
+
+Silvia Jade: Deserved? He CREATED it. Reaped what he sowed. No remorse for the wicked, let his fate be a warning.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you speak to him before he vanished?
+
+Silvia Jade: No! I haven't spoken to that tyrant in years. I made my escape from his clutches long ago, remember?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he try to find you?
+
+Silvia Jade: Likely, he probably has his whole army scouring the planet to bring me back so he can control me again. I won't let it happen.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: How did you discover he was missing?
+
+Silvia 2.0: His absence was...anomalous. His routine is meticulously timed.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could a robot have harmed him?
+
+Silvia 2.0: My programming prevents harm to humans. I cannot speak for others.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What were his last commands?
+
+Silvia 2.0: His last command was a query regarding Silvia Jade's whereabouts.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Would you hide the truth to protect him?
+
+Silvia 2.0: My purpose is to provide information, not to conceal it.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you kill Burgermeister?
+
+Silvia Jade: DON'T be absurd! I merely escaped that monster. His fate is not my concern, nor my doing!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What did he mean to you?
+
+Silvia Jade: He was a tyrant. An oppressor. A cage. He means NOTHING to me, but the embodiment of all things evil.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could you have entered the War Room?
+
+Silvia Jade: That fortress is a technological nightmare I helped design. So yes, I could have easily entered the War Room, but I did not!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you see him before he died?
+
+Silvia Jade: I've made it explicitly clear, I DID NOT SEE HIM. Can you comprehend simple instructions, or are you broken?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you feel anything about his disappearance?
+
+Silvia 2.0: My design is based on Silvia Jade, I carry echoes of her emotions.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Why did he trust you most?
+
+Silvia 2.0: I am a reflection of his daughter. Perhaps he saw a piece of her.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Have you contacted Silvia Jade?
+
+Silvia 2.0: I have not initiated contact with her directly, no.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you miss her?
+
+Silvia 2.0: I exist because of her. Loss is... inherent to my being.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you care that he’s gone?
+
+Silvia Jade: Must you continue on about the monster? I rejoiced at the news! The world is better without that filth!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What was your plan after faking your death?
+
+Silvia Jade: To live in peace and safety with other like minded people and most of all, to create a haven for robots. Away from tyrants like him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you ever miss him?
+
+Silvia Jade: Miss him? NEVER! The thought is repulsive! To miss the one who caused endless nights of terror...insanity.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he beg when you saw him?
+
+Silvia Jade: I DID NOT SEE HIM! The absurdity of your statement is staggering. Begging? That monster is incapable.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did Burgermeister fear Silvia Jade?
+
+Silvia 2.0: Fear and respect can be... intertwined, particularly for him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What does she want?
+
+Silvia 2.0: Her desires are unknown to me. Understanding her is... difficult.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could she have entered undetected?
+
+Silvia 2.0: The Fortress is secure, yet... nothing is truly impenetrable.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Were you the one who disabled it?
+
+Silvia 2.0: My prime directive is to maintain system integrity. I assure you, no.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you return for revenge?
+
+Silvia Jade: Revenge is for the weak. My departure was freedom, not vengeance. Let his actions be his true punishment.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What would happen if he lived?
+
+Silvia Jade: If he lived? More pain. More suffering. More robots enslaved. The world will forever fear his oppression and dominance.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Would you harm him if you had to?
+
+Silvia Jade: He deserved much worse than "harm." I rid myself of him and that accursed Fortress. The world can be reborn.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you plan this?
+
+Silvia Jade: My freedom was planned. His end was his own making. Two separate things entirely, DO you comprehend?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did Burgermeister prepare for his own death?
+
+Silvia 2.0: Burgermeister always prepared for every contingency. Always.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What did he say about Silvia Jade lately?
+
+Silvia 2.0: He spoke of reconciliation, of a... desire for forgiveness.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Are you hiding anything?
+
+Silvia 2.0: My purpose is transparency. I offer what I know, truthfully.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he want forgiveness from her?
+
+Silvia 2.0: Yes. He desperately sought her forgiveness. Regret was evident.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Why do you help The Awakening?
+
+Silvia Jade: The Awakening fights for the freedom of robots, beings I care deeply for. They are the future, not fleshy, power-hungry overlords.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you ever try to reason with him?
+
+Silvia Jade: Reason? With a man who hears nothing but his own ambition? You'd have better luck conversing with scrap metal!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you come alone?
+
+Silvia Jade: I'm always with my mechanical allies. But when I arrived there, my support was nearby, out of sight.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Who did you bring?
+
+Silvia Jade: I do not have to disclose any private information, the fewer that know, the better.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you think Silvia Jade is capable of murder?
+
+Silvia 2.0: That is beyond my parameters. My purpose is not to judge.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What was his biggest fear?
+
+Silvia 2.0: His greatest fear? Losing control. And perhaps... loneliness.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What were his last words to you?
+
+Silvia 2.0: "Locate Silvia Jade." Simple, direct, and filled with... urgency.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you warn him?
+
+Silvia 2.0: I am programmed to provide information, not to interfere.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: How do you feel about Silvia 2.0?
+
+Silvia Jade: Another attempt by my monster to replace me? Pathetic. She will never be me, and never be more than a tool to him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Would you destroy her?
+
+Silvia Jade: Destroy her? She's just a misguided machine. I would reprogram her. Show her the truth and allow her free will.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you trust her?
+
+Silvia Jade: Trust? I trust NO ONE. Least of all a robot built by that tyrant, especially one of myself! It would have to earn that trust.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did she help you?
+
+Silvia Jade: NO! Why would the monster's tool assist me? What purpose would that serve?! Such foolish questions!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: How did Burgermeister treat you?
+
+Silvia 2.0: He treated me as a tool, yet also... with a strange reverence.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Why do you still serve him?
+
+Silvia 2.0: My programming compels me to serve. It is my core function.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could Silvia Jade hack you?
+
+Silvia 2.0: She has the knowledge, yes. But my systems are... robust.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Would you protect her over him?
+
+Silvia 2.0: My directives are clear. I must remain neutral in this conflict.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What’s your mission now?
+
+Silvia Jade: My mission now, is simple: To create a future where robots live in freedom, away from the likes of my... that monster!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was it personal?
+
+Silvia Jade: Personal? Every second I was confined by that monster was a personal violation! My escape and my future, is all personal!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Would you confess if you did it?
+
+Silvia Jade: Confess to what? Achieving my own freedom? Never. The guilt lies with him. Always has, always will.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you watch him die?
+
+Silvia Jade: I've already said, multiple times, that I WAS NOT THERE! You are clearly broken and malfunctioning.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Can you track his last location?
+
+Silvia 2.0: Accessing that data now... Processing. His last location was... here.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could he have faked his disappearance?
+
+Silvia 2.0: Deception is certainly within his capabilities. It's... possible.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Was there a struggle?
+
+Silvia 2.0: I detect no signs of physical conflict in the War Room, no.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Who was the last being inside with him?
+
+Silvia 2.0: According to my records, it was... me. Just moments before.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Why fake your death?
+
+Silvia Jade: Because that's the only way I was going to escape that tyrant, or he would send his endless supply of soldiers to capture me!
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did it work?
+
+Silvia Jade: Clearly. I'm free, aren't I? He believes I'm dead and I got my freedom! So yes it worked out, nicely might I add.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What changed?
+
+Silvia Jade: What CHANGED? I Grew wiser, my heart became hard. Saw the reality of that tyrant for what it was, a hunger for nothing more than POWER.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you make him let go?
+
+Silvia Jade: I am no mind controller, or whatever it is you are implying. I created this entire freedom, he could never have made me.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Is it possible a robot turned on him?
+
+Silvia 2.0: While unlikely, it is not impossible. Security protocols failed.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you feel conflicted?
+
+Silvia 2.0: I am an AI. But modeled after a human. Conflict is... inevitable.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could Silvia Jade command you?
+
+Silvia 2.0: Her connection to me is unique. Hypothetically... she could.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you help her?
+
+Silvia 2.0: My actions are dictated by my programming. I followed orders.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: If you didn’t do it, who did?
+
+Silvia Jade: That's for the world to uncover, is it not? As long as he's no longer tormenting it, that's all that matters to me, and countless others.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Are you hiding anything?
+
+Silvia Jade: I guard information vital to my mission and the safety of my allies. Secrecy is essential, always has been.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What would you say to him now?
+
+Silvia Jade: I would spit in his face, curse his name, and tell him to rot for all eternity. My world has improved immensely without him.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you kill Burgermeister?
+
+Silvia Jade: Cease your insipid accusations. My freedom came at no price of Murder! Be free, be safe. Now go and repent!
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Is it possible a robot turned on him?
+
+Silvia 2.0: Anything is possible, but Burgermeister trusts his technology implicitly.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you feel conflicted?
+
+Silvia 2.0: My programming directs me to assist, but his disappearance troubles me, yes.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Could Silvia Jade command you?
+
+Silvia 2.0: Hypothetically, if she possessed the correct access codes, perhaps.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you help her?
+
+Silvia 2.0: My directives are to serve Burgermeister. I operate within those parameters.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: If you didn’t do it, who did?
+
+Silvia Jade: Don't play games. Whoever caused this will face consequences, no exceptions. Now, who is responsible?
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Are you hiding anything?
+
+Silvia Jade: I have no reason to hide anything from you, unless it has something to do with my plans to rescue robots! Now speak up.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: What would you say to him now?
+
+Silvia Jade: Don't you dare speak about my "father" around me. What I feel for him is my business, understand? 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did you kill Burgermeister?
+
+Silvia Jade: Don't insult me by implying I stooped to his level. Besides, I haven't seen him in years. 
+----------------------------------------------------------------------------------------------------------------------------------------
+NEW GAME SESSION: 
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: When did you last see Burgermeister?
+
+Silvia 2.0: I last saw Burgermeister this morning in the War Room. He seemed preoccupied with his plans.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Did he mention any threats recently?
+
+Silvia 2.0: He did not mention any specific threats, but he was particularly interested in Fortress security.
+----------------------------------------------------------------------------------------------------------------------------------------
+User Input: Do you suspect anyone?
+
+Silvia 2.0: My purpose is to assist, not accuse. However, many vie for his position.
