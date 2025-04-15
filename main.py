@@ -560,10 +560,11 @@ class Game:
                 self.sprites.update()
 
                 # Display NPC names to select from based off npc name string
-                if self.npcSelect == " " or self.npcSelect == "Silvia 2.0":
-                    aiSilvia.draw(self.screen)
-                elif self.npcSelect == "Silvia Jade":
-                    humanSilvia.draw(self.screen)
+                if self.stage is not 20:
+                    if self.npcSelect == " " or self.npcSelect == "Silvia 2.0":
+                        aiSilvia.draw(self.screen)
+                    elif self.npcSelect == "Silvia Jade":
+                        humanSilvia.draw(self.screen)
 
                 # Display interrogation big font
                 self.textManager.displayRedText(self.screen, self.selectSuspect,
@@ -784,77 +785,173 @@ class Game:
                 # Depending on even above a answer will be returned
                 if self.displayAnswer == True:
                     # Scripted NPC response
-                    self.textManager.scriptedResponse(self.screen, self.question, self.npc)
-                    self.displayAnswer = False
+                    # self.textManager.scriptedResponse(self.screen, self.question, self.npc)
+                    # self.displayAnswer = False
 
                     # Nonscripted NPC response
-                    # if self.npc == "Silvia 2.0":
-                    #     if self.question == 1:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaAI, self.npc)                            
-                    #     elif self.question == 2:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaAI, self.npc)                           
-                    #     elif self.question == 3:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaAI, self.npc)                            
-                    #     elif self.question == 4:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaAI, self.npc)                           
-                    #     elif self.question == 5:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaAI, self.npc)                           
-                    #     elif self.question == 6:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaAI, self.npc)                           
-                    #     elif self.question == 7:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaAI, self.npc)                           
-                    #     elif self.question == 8:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaAI, self.npc)                           
-                    #     elif self.question == 9:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaAI, self.npc)                            
-                    #     elif self.question == 10:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaAI, self.npc)                           
-                    #     elif self.question == 11:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaAI, self.npc)                           
-                    #     elif self.question == 12:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaAI, self.npc)                           
-                    #     elif self.question == 13:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaAI, self.npc)                           
-                    #     elif self.question == 14:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaAI, self.npc)                           
-                    #     elif self.question == 15:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaAI, self.npc)                           
-                    #     elif self.question == 16:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaAI, self.npc)                           
+                    if self.npc == "Silvia 2.0":
+                        if self.question == 1:
+                            self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaAI, self.npc)                            
+                        elif self.question == 2:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaAI, self.npc)                           
+                        elif self.question == 3:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaAI, self.npc)                            
+                        elif self.question == 4:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaAI, self.npc)                           
+                        elif self.question == 5:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaAI, self.npc)                           
+                        elif self.question == 6:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaAI, self.npc)                           
+                        elif self.question == 7:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaAI, self.npc)                           
+                        elif self.question == 8:
+                            self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaAI, self.npc)                           
+                        elif self.question == 9:
+                            self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaAI, self.npc)                            
+                        elif self.question == 10:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaAI, self.npc)                           
+                        elif self.question == 11:
+                            self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaAI, self.npc)                           
+                        elif self.question == 12:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaAI, self.npc)                           
+                        elif self.question == 13:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaAI, self.npc)                           
+                        elif self.question == 14:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaAI, self.npc)                           
+                        elif self.question == 15:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaAI, self.npc)                           
+                        elif self.question == 16:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaAI, self.npc)
+                        elif self.question == 17:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaAI, self.npc)                           
+                        elif self.question == 18:
+                            self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaAI, self.npc)                           
+                        elif self.question == 19:
+                            self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaAI, self.npc)                            
+                        elif self.question == 20:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaAI, self.npc)                           
+                        elif self.question == 21:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaAI, self.npc)                           
+                        elif self.question == 22:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaAI, self.npc)                           
+                        elif self.question == 23:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaAI, self.npc)                           
+                        elif self.question == 24:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaAI, self.npc)                           
+                        elif self.question == 25:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaAI, self.npc)                           
+                        elif self.question == 26:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaAI, self.npc)
+                        elif self.question == 27:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaAI, self.npc)                           
+                        elif self.question == 28:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaAI, self.npc)                           
+                        elif self.question == 29:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaAI, self.npc)                            
+                        elif self.question == 30:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaAI, self.npc)
+                        elif self.question == 31:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaAI, self.npc)                           
+                        elif self.question == 32:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaAI, self.npc)                           
+                        elif self.question == 33:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaAI, self.npc)                           
+                        elif self.question == 34:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaAI, self.npc)                           
+                        elif self.question == 35:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaAI, self.npc)                           
+                        elif self.question == 36:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaAI, self.npc)
+                        elif self.question == 37:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaAI, self.npc)                           
+                        elif self.question == 38:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaAI, self.npc)                           
+                        elif self.question == 39:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaAI, self.npc)                            
+                        elif self.question == 40:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaAI, self.npc)   
 
-                    # elif self.npc == "Silvia Jade":
-                    #     if self.question == 1:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaHuman, self.npc)                       
-                    #     elif self.question == 2:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaHuman, self.npc)                           
-                    #     elif self.question == 3:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaHuman, self.npc)                           
-                    #     elif self.question == 4:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaHuman, self.npc)                           
-                    #     elif self.question == 5:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaHuman, self.npc)                           
-                    #     elif self.question == 6:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaHuman, self.npc)                           
-                    #     elif self.question == 7:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaHuman, self.npc)                            
-                    #     elif self.question == 8:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaHuman, self.npc)                           
-                    #     elif self.question == 9:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaHuman, self.npc)                            
-                    #     elif self.question == 10:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaHuman, self.npc)                           
-                    #     elif self.question == 11:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaHuman, self.npc)                           
-                    #     elif self.question == 12:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaHuman, self.npc)                           
-                    #     elif self.question == 13:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaHuman, self.npc)                            
-                    #     elif self.question == 14:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaHuman, self.npc)                            
-                    #     elif self.question == 15:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaHuman, self.npc)                            
-                    #     elif self.question == 16:
-                    #         self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaHuman, self.npc)
+                    elif self.npc == "Silvia Jade":
+                        if self.question == 1:
+                            self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaHuman, self.npc)                       
+                        elif self.question == 2:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaHuman, self.npc)                           
+                        elif self.question == 3:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaHuman, self.npc)                           
+                        elif self.question == 4:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaHuman, self.npc)                           
+                        elif self.question == 5:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaHuman, self.npc)                           
+                        elif self.question == 6:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaHuman, self.npc)                           
+                        elif self.question == 7:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaHuman, self.npc)                            
+                        elif self.question == 8:
+                            self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaHuman, self.npc)                           
+                        elif self.question == 9:
+                            self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaHuman, self.npc)                            
+                        elif self.question == 10:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaHuman, self.npc)                           
+                        elif self.question == 11:
+                            self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaHuman, self.npc)                           
+                        elif self.question == 12:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaHuman, self.npc)                           
+                        elif self.question == 13:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaHuman, self.npc)                            
+                        elif self.question == 14:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaHuman, self.npc)                            
+                        elif self.question == 15:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaHuman, self.npc)                            
+                        elif self.question == 16:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaHuman, self.npc)
+                        elif self.question == 17:
+                            self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaHuman, self.npc)                           
+                        elif self.question == 18:
+                            self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaHuman, self.npc)                           
+                        elif self.question == 19:
+                            self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaHuman, self.npc)                            
+                        elif self.question == 20:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaHuman, self.npc)                           
+                        elif self.question == 21:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaHuman, self.npc)                           
+                        elif self.question == 22:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaHuman, self.npc)                           
+                        elif self.question == 23:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaHuman, self.npc)                           
+                        elif self.question == 24:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaHuman, self.npc)                           
+                        elif self.question == 25:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaHuman, self.npc)                           
+                        elif self.question == 26:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaHuman, self.npc)
+                        elif self.question == 27:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaHuman, self.npc)                           
+                        elif self.question == 28:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaHuman, self.npc)                           
+                        elif self.question == 29:
+                            self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaHuman, self.npc)                            
+                        elif self.question == 30:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaHuman, self.npc)
+                        elif self.question == 31:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaHuman, self.npc)                           
+                        elif self.question == 32:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaHuman, self.npc)                           
+                        elif self.question == 33:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaHuman, self.npc)                           
+                        elif self.question == 34:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaHuman, self.npc)                           
+                        elif self.question == 35:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaHuman, self.npc)                           
+                        elif self.question == 36:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaHuman, self.npc)
+                        elif self.question == 37:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaHuman, self.npc)                           
+                        elif self.question == 38:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaHuman, self.npc)                           
+                        elif self.question == 39:
+                            self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaHuman, self.npc)                            
+                        elif self.question == 40:
+                            self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaHuman, self.npc)
                             
                     self.displayAnswer = False
                     
