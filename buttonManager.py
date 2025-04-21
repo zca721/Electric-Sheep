@@ -5,7 +5,9 @@ class Button:
     def __init__(self, x, y, width, height, text, color, highlighted_color, action=None):
         pygame.init()
         self.font = pygame.font.Font('freesansbold.ttf', SMALL_FONT)
-        self.mainMenuFont = pygame.font.Font('freesansbold.ttf', MAIN_MENU_FONT)
+        self.mediumFont = pygame.font.Font('freesansbold.ttf', LARGE_FONT)
+        # self.delay_time = 4000  # milliseconds
+        # self.last_click_time = 0
 
         self.rect = pygame.Rect(x, y, width, height)
         self.x = x
@@ -29,13 +31,13 @@ class Button:
         text_rect = pygame.draw.rect(screen, 'black', [self.x, self.y, self.width, self.height])
         screen.blit(text_surface, text_rect)
 
-    def drawMainMenu(self, screen):
+    def drawMediumButton(self, screen):
 
         mouse_pos = pygame.mouse.get_pos()
         if self.is_hovered(mouse_pos):
-            text_surface = self.mainMenuFont.render(self.text, True, self.highlighted_color)
+            text_surface = self.mediumFont.render(self.text, True, self.highlighted_color)
         else:
-            text_surface = self.mainMenuFont.render(self.text, True, self.color)
+            text_surface = self.mediumFont.render(self.text, True, self.color)
 
         text_rect = pygame.draw.rect(screen, 'black', [self.x, self.y, self.width, self.height])
         screen.blit(text_surface, text_rect)
@@ -45,6 +47,22 @@ class Button:
             if self.rect.collidepoint(event.pos):
                 return True
                     
+    # def delay_handle_event(self, event):
+    #     if event.type == pygame.MOUSEBUTTONDOWN:
+    #         if self.rect.collidepoint(event.pos):
+    #             current_time = pygame.time.get_ticks()
+    #             if current_time - self.last_click_time >= self.delay_time:
+    #                 print("Button Clicked!")
+    #                 print("current_time", current_time)
+    #                 print("last_click_time", self.last_click_time)
+    #                 print("delay_time", self.delay_time)
+    #                 self.last_click_time = current_time
+    #                 return True
+    #             else:
+    #                 print("Button is on cooldown.")
+    #                 print("current_time", current_time)
+    #                 print("last_click_time", self.last_click_time)
+    #                 print("delay_time", self.delay_time)
 
     def is_hovered(self, mouse_pos):
         return self.rect.collidepoint(mouse_pos)

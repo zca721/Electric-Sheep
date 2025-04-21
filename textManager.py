@@ -6,11 +6,12 @@ class TextManager:
     def __init__(self):
         pygame.init()
         # Font style and size
-        self.font = pygame.font.Font('freesansbold.ttf', SMALL_FONT)
+        self.smallFont = pygame.font.Font('freesansbold.ttf', SMALL_FONT)
         self.mediumFont = pygame.font.Font('freesansbold.ttf', MEDIUM_FONT)
-        self.titleFont = pygame.font.Font('freesansbold.ttf', ELECTRIC_SHEEP_FONT)
+        self.largeFont = pygame.font.Font('freesansbold.ttf', LARGE_FONT)
+        self.extraLargeFont = pygame.font.Font('freesansbold.ttf', EXTRA_LARGE_FONT)
 
-        self.snip = self.font.render('', True, 'white')
+        self.snip = self.smallFont.render('', True, 'white')
         # self.counter = 0
         # self.counterOne = 0
         # self.counterTwo = 0
@@ -199,7 +200,7 @@ class TextManager:
         # self.snip = self.font.render(message[0:self.counter//self.speed], True, 'white')
 
         # Display text all at once
-        self.snip = self.font.render(message, True, 'white')
+        self.snip = self.smallFont.render(message, True, 'white')
         screen.blit(self.snip, (ANSWER_X + DISPLAY_FONT, ANSWER_Y + DISPLAY_FONT))
             
     def displayRedText(self, screen, message, x, y, width, height, size):
@@ -207,10 +208,12 @@ class TextManager:
 
         # Display text all at once
         if size == "small":
-            self.snip = self.font.render(message, True, 'red')
+            self.snip = self.smallFont.render(message, True, 'red')
         elif size == "medium":
             self.snip = self.mediumFont.render(message, True, 'red')
-        elif size == "title":
-            self.snip = self.titleFont.render(message, True, 'red')
+        elif size == "large":
+            self.snip = self.largeFont.render(message, True, 'red')
+        elif size == "extra large":
+            self.snip = self.extraLargeFont.render(message, True, 'red')
 
         screen.blit(self.snip, (x + DISPLAY_FONT, y + DISPLAY_FONT))

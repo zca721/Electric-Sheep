@@ -7,11 +7,24 @@ startGame = Button(START_GAME_X, START_GAME_Y, START_GAME_WIDTH, START_GAME_HEIG
                                         "START GAME",
                                         'white', 'gray', action=None)
 
+# Interrogation buttons
+guessGuiltySuspect = Button(NEXT_X, NEXT_Y, NEXT_WIDTH, NEXT_HEIGHT,
+                                        "guess guilty suspect",
+                                        'white', 'grey', action=None)
+
 # Buttons for selecting an NPC to interrogate
 aiSilvia = Button(BUTTON_AI_SILVIA_X, BUTTON_AI_SILVIA_Y, BUTTON_AI_SILVIA_WIDTH, BUTTON_AI_SILVIA_HEIGHT,
                                         "Silvia 2.0",
                                         'white', 'grey', action=None)
 humanSilvia = Button(BUTTON_HUMAN_SILVIA_X, BUTTON_HUMAN_SILVIA_Y, BUTTON_HUMAN_SILVIA_WIDTH, BUTTON_HUMAN_SILVIA_HEIGHT,
+                                        "Silvia Jade",
+                                        'white', 'grey', action=None)
+
+# Buttons for selecting wich NPC is guilty
+guiltySilviaAI = Button(GUILTY_AI_SILVIA_X, GUILTY_AI_SILVIA_Y, GUILTY_AI_SILVIA_WIDTH, GUILTY_AI_SILVIA_HEIGHT,
+                                        "Silvia 2.0",
+                                        'white', 'grey', action=None)
+guiltySilviaHuman = Button(GUILTY_HUMAN_SILVIA_X, GUILTY_HUMAN_SILVIA_Y, GUILTY_HUMAN_SILVIA_WIDTH, GUILTY_HUMAN_SILVIA_HEIGHT,
                                         "Silvia Jade",
                                         'white', 'grey', action=None)
 
