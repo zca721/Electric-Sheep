@@ -15,6 +15,10 @@ class Game:
 
         # Scene
         self.scene = "main_menu"
+        # self.scene = "guilty_suspect"
+
+        # Used for calculating the width of the characters based off font size to determine next line in input text
+        self.mediumFont = pygame.font.Font('freesansbold.ttf', MEDIUM_FONT)
 
         # Full screen mode
         # self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.FULLSCREEN | pygame.SCALED)
@@ -38,6 +42,8 @@ class Game:
         self.sprites = pygame.sprite.Group()
 
         # Text based variables
+        self.responseType = "nonscripted"
+        # self.responseType = "scripted"
         self.displayAnswer = False
         self.stage = 0
         self.slotOne = 1
@@ -52,17 +58,37 @@ class Game:
         self.secretString = 7
         self.blankMessage = ""
 
+        # Text input variables
+        self.inputText = [""]
+        self.buildText = ""
+        self.index = 0
+        self.allowInput = True
+        # self.keyStroke = False
+
         # Display text in main menu
         self.electricSheepTitle = "ELECTRIC SHEEP"
+
+        # Display text in game decription
+        self.gameDescription = "DETECTIVE LOG"
+        self.gameDescriptionOne = "Burgermeister is missing—no body, no signs of struggle, and the Fortress remains locked"
+        self.gameDescriptionTwo = "from the inside. I’ve been brought in to question the only two who might know what" 
+        self.gameDescriptionThree = "happened. Silvia 2.0—his AI assistant, calm, precise, and built in the image of his"
+        self.gameDescriptionFour = "daughter. And Silvia Jade—his real daughter, believed dead for years, now suddenly"
+        self.gameDescriptionFive = "back with a complicated past. I can ask each of them up to three questions, with a"
+        self.gameDescriptionSix = "possible fourth if I push just right. There's a short pause—six seconds—between each"
+        self.gameDescriptionSeven = "question, just long enough to keep the pressure steady. One of them knows what"
+        self.gameDescriptionEight = "happened to Burgermeister. I need to find out who."
 
         # Display text in iterrogation
         self.selectSuspect = "SELECT SUSPECT"
         self.selectQuestion = "SELECT INTERROGATION QUESTION"
         self.stageDisplay = "STAGE "
+        self.timeDisplay = " SECONDS"
         self.coolDown = "QUESTION BUTTON: COOL DOWN"
         self.ready = "QUESTION BUTTON: READY"
 
         # Display text in guilty_suspect
+        self.inputReason = "PLEASE TYPE IN WHY YOU CHOSE WHO WAS GUILTY"
         self.whosGuilty = "SELECT WHO IS GUILTY"
         self.correct = "CORRECT"
         self.wrong = "WRONG"
@@ -70,8 +96,9 @@ class Game:
         # NPC based variables
         self.npc = " "
         self.npcSelect = " "
-        self.npcGuilty = "Silvia Jade"
         self.npcBoolean = " "
+        # self.npcGuilty = "Silvia Jade"
+        self.npcGuilty = "Silvia 2.0"
 
     # Helper functions
     # Builds secret string for each stage
@@ -96,7 +123,7 @@ class Game:
 
         text = open("SystemInstructionOutput.txt", "a")
         text.write("----------------------------------------------------------------------------------------------------------------------------------------" + "\n")
-        text.write("NEW GAME SESSION: " + "\n")
+        text.write("NEW GAME SESSION: " + self.responseType + "\n")
         text.close()
 
         while True:
@@ -110,6 +137,12 @@ class Game:
                 if self.scene == "main_menu":
                     self.screen.fill('black')
                     if startGame.handle_event(event):
+                        # self.scene = "interrogation"
+                        self.scene = "game_description"
+
+                elif self.scene == "game_description":
+                    self.screen.fill('black')
+                    if continueGame.handle_event(event):
                         self.scene = "interrogation"
 
                 elif self.scene == "interrogation":
@@ -366,6 +399,415 @@ class Game:
                                 # Stage 1
                                 if self.stage == 1:
                                     # Depending on what question is clicked a answer will be given
+                                    if questionOneButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 1
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTwoButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 2
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThreeButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 3
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionFourButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 4
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 2
+                                # Stage 3
+                                elif self.stage == 3:
+                                    # Depending on what question is clicked a answer will be given
+                                    if questionFiveButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 5
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionSixButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 6
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionSevenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 7
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionEightButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 8
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 4
+                                # Stage 5
+                                elif self.stage == 5:
+                                    # Depending on what question is clicked a answer will be given
+                                    if questionNineButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 9
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 10
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionElevenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 11
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwelveButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 12
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 6
+                                # Stage 7
+                                elif self.stage == 7:
+                                    # Depending on what question is clicked a answer will be given
+                                    if questionThirteenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 13
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionFourteenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 14
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionFifteenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 15
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionSixteenButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 16
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 8
+                                # Stage 9
+                                elif self.stage == 9:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionSeventeenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 17
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionEighteenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 18
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionNineteenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 19
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwentyButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 20
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 10
+                                # Stage 11
+                                elif self.stage == 11:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionTwentyOneButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 21
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTwentyTwoButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 22
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionTwentyThreeButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 23
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwentyFourButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 24
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 12
+                                # Stage 13
+                                elif self.stage == 13:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionTwentyFiveButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 25
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTwentySixButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 26
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionTwentySevenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 27
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwentyEightButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 28
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 14
+                                # Stage 15
+                                elif self.stage == 15:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionTwentyNineButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 29
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionThirtyButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 30
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThirtyOneButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 31
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionThirtyTwoButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 32
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 16
+                                # Stage 17
+                                elif self.stage == 17:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionThirtyThreeButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 33
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionThirtyFourButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 34
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThirtyFiveButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 35
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionThirtySixButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 36
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 18
+                                # Stage 19
+                                elif self.stage == 19:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionThirtySevenButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 37
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionThirtyEightButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 38
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThirtyNineButtonSilviaHumanGuilty.handle_event(event):
+                                        self.question = 39
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionFourtyButtonSilviaHumanGuilty.handle_event(event):
+                                            self.question = 40
+                                            self.stages(self.slotFour, self.npc)
+                                            # Stage ends here for now
+                                            self.stage = 20
+                    elif self.npcGuilty == "Silvia 2.0":
+                        # Handles events for Silvia 2.0
+                        if self.npc == "Silvia 2.0":
+                            if self.time - self.lastClickTime >= self.pauseClick or self.lastClickTime == 0:
+                                # Stage 0
+                                if self.stage == 0:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionOneButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 1
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTwoButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 2
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThreeButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 3
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionFourButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 4
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 1
+                                # Stage 2
+                                elif self.stage == 2:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionFiveButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 5
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionSixButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 6
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionSevenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 7
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionEightButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 8
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 3
+                                # Stage 4
+                                elif self.stage == 4:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionNineButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 9
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 10
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionElevenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 11
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwelveButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 12
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 5
+                                # Stage 6
+                                elif self.stage == 6:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionThirteenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 13
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionFourteenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 14
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionFifteenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 15
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionSixteenButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 16
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 7
+                                # Stage 8
+                                elif self.stage == 8:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionSeventeenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 17
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionEighteenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 18
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionNineteenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 19
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwentyButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 20
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 9
+                                # Stage 10
+                                elif self.stage == 10:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionTwentyOneButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 21
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTwentyTwoButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 22
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionTwentyThreeButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 23
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwentyFourButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 24
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 11
+                                # Stage 12
+                                elif self.stage == 12:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionTwentyFiveButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 25
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionTwentySixButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 26
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionTwentySevenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 27
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionTwentyEightButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 28
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 13
+                                # Stage 14
+                                elif self.stage == 14:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionTwentyNineButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 29
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionThirtyButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 30
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThirtyOneButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 31
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionThirtyTwoButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 32
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 15
+                                # Stage 16
+                                elif self.stage == 16:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionThirtyThreeButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 33
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionThirtyFourButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 34
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThirtyFiveButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 35
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionThirtySixButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 36
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 17
+                                # Stage 18
+                                elif self.stage == 18:
+                                    # Depending on what question is clicked a answer will be given with Silvia 2.0
+                                    if questionThirtySevenButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 37
+                                        self.stages(self.slotOne, self.npc)
+
+                                    elif questionThirtyEightButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 38
+                                        self.stages(self.slotTwo, self.npc)
+
+                                    elif questionThirtyNineButtonSilviaAIGuilty.handle_event(event):
+                                        self.question = 39
+                                        self.stages(self.slotThree, self.npc)
+
+                                    if self.buildString == self.secretString:
+                                        if questionFourtyButtonSilviaAIGuilty.handle_event(event):
+                                            self.question = 40
+                                            self.stages(self.slotFour, self.npc)
+                                            self.stage = 19
+
+                        # Handles events for Silvia Jade
+                        if self.npc == "Silvia Jade":
+                            if self.time - self.lastClickTime >= self.pauseClick:
+                                # Stage 1
+                                if self.stage == 1:
+                                    # Depending on what question is clicked a answer will be given
                                     if questionOneButtonSilviaHuman.handle_event(event):
                                         self.question = 1
                                         self.stages(self.slotOne, self.npc)
@@ -584,6 +1026,47 @@ class Game:
                                 
                             elif self.npcGuilty != self.npc:
                                 self.npcBoolean = False
+                    else:
+                        if submit.handle_event(event) and self.allowInput == True:
+                            for string in self.inputText:
+                                self.buildText += string
+                            self.allowInput = False
+                            text = open("GuiltyVerdict.txt", "a")
+                            text.write("Guilty Suspect: " + self.npcGuilty + "\n" + "Suspect User Selected: " + self.npc + "\n")
+                            text.write(self.buildText + "\n")
+                            text.write("----------------------------------------------------------------------------------------------------------------------------------------" + "\n")
+                            text.close()
+                            print(self.buildText)
+
+                        # Handles input text from user and disallows continuous key pressed
+                        # if event.type == pygame.TEXTINPUT and self.keyStroke == False:
+                        #     self.inputText[-1] += event.text
+                        #     self.keyStroke = True
+
+                        # Allows continuous key pressed but stops at text box width max
+                        if event.type == pygame.TEXTINPUT and self.mediumFont.size(self.inputText[self.index])[0] <= INPUT_WIDTH - GAP_FONT and len(self.inputText) <= MAX_CHARACTERS:
+                            self.inputText[-1] += event.text
+
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_BACKSPACE:
+                                # String splicing to remove last character from string
+                                self.inputText[-1] = self.inputText[-1][:-1]
+                                if len(self.inputText[-1]) == 0:
+                                    if len(self.inputText) > 1:
+                                        self.inputText = self.inputText[:-1]
+                                        self.index -= 1
+                            # Allows for nextline from hitting enter or amount of characters
+                            # elif event.key == pygame.K_RETURN or len(self.inputText[self.index]) >= MAX_CHARACTERS:
+
+                            # Allows for nextline when text length is greater or equal to the display text bow
+                            elif self.mediumFont.size(self.inputText[self.index])[0] >= INPUT_WIDTH - GAP_FONT:
+                                self.inputText.append("")
+                                self.index += 1
+
+                        # Part of disallowing continuous key pressed
+                        # elif event.type == pygame.KEYUP and self.keyStroke == True:
+                        #     self.keyStroke = False
+                        
 
             # Used for timing of game
             delta_time = self.clock.tick() / 1000
@@ -597,6 +1080,38 @@ class Game:
                 self.textManager.displayRedText(self.screen, self.electricSheepTitle,
                                                   ELECTRIC_SHEEP_X, ELECTRIC_SHEEP_Y, ELECTRIC_SHEEP_WIDTH, ELECTRIC_SHEEP_HEIGHT,
                                                   "extra large")
+                
+            elif self.scene == "game_description":
+                continueGame.drawMediumButton(self.screen)
+
+                self.textManager.displayRedText(self.screen, self.gameDescription,
+                                                  ELECTRIC_SHEEP_X, ELECTRIC_SHEEP_Y, ELECTRIC_SHEEP_WIDTH, ELECTRIC_SHEEP_HEIGHT,
+                                                  "extra large")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionOne,
+                                                  DESCRIPTION_X, DESCRIPTION_Y, DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionTwo,
+                                                  DESCRIPTION_X, DESCRIPTION_Y + DESCRIPTION_GAP, DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionThree,
+                                                  DESCRIPTION_X, DESCRIPTION_Y + (DESCRIPTION_GAP * 2), DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionFour,
+                                                  DESCRIPTION_X, DESCRIPTION_Y + (DESCRIPTION_GAP * 3), DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionFive,
+                                                  DESCRIPTION_X, DESCRIPTION_Y + (DESCRIPTION_GAP * 4), DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionSix,
+                                                  DESCRIPTION_X, DESCRIPTION_Y + (DESCRIPTION_GAP * 5), DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionSeven,
+                                                  DESCRIPTION_X, DESCRIPTION_Y + (DESCRIPTION_GAP * 6), DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                self.textManager.displayRedText(self.screen, self.gameDescriptionEight,
+                                                  DESCRIPTION_X, DESCRIPTION_Y + (DESCRIPTION_GAP * 7), DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
+                                                  "medium")
+                
 
             elif self.scene == "interrogation":
                 # Keeps sprite images in sprites group being continuously displayed if in group
@@ -622,9 +1137,9 @@ class Game:
                 self.textManager.displayRedText(self.screen, self.stageDisplay + str(self.stage),
                                                     STAGE_X, STAGE_Y, STAGE_WIDTH, STAGE_HEIGHT,
                                                     "medium")
-                self.textManager.displayRedText(self.screen, str(int(self.time)),
-                                                    TIME_X, TIME_Y, TIME_WIDTH, TIME_HEIGHT,
-                                                    "medium")
+                # self.textManager.displayRedText(self.screen, str(int(self.time)) + self.timeDisplay,
+                #                                     TIME_X, TIME_Y, TIME_WIDTH, TIME_HEIGHT,
+                #                                     "medium")
                 
                 if self.time - self.lastClickTime >= self.pauseClick or self.lastClickTime == 0:
                     self.textManager.displayRedText(self.screen, self.ready,
@@ -742,6 +1257,212 @@ class Game:
                     elif self.npc == "Silvia Jade":
                         # Stage 1
                         if self.stage == 1:
+                            questionOneButtonSilviaHumanGuilty.draw(self.screen)
+                            questionTwoButtonSilviaHumanGuilty.draw(self.screen)
+                            questionThreeButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionFourButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 3
+                        elif self.stage == 3:
+                            questionFiveButtonSilviaHumanGuilty.draw(self.screen)
+                            questionSixButtonSilviaHumanGuilty.draw(self.screen)
+                            questionSevenButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionEightButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 5
+                        elif self.stage == 5:
+                            questionNineButtonSilviaHumanGuilty.draw(self.screen)
+                            questionTenButtonSilviaHumanGuilty.draw(self.screen)
+                            questionElevenButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwelveButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 7
+                        elif self.stage == 7:
+                            questionThirteenButtonSilviaHumanGuilty.draw(self.screen)
+                            questionFourteenButtonSilviaHumanGuilty.draw(self.screen)
+                            questionFifteenButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionSixteenButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 9
+                        elif self.stage == 9:
+                            questionSeventeenButtonSilviaHumanGuilty.draw(self.screen)
+                            questionEighteenButtonSilviaHumanGuilty.draw(self.screen)
+                            questionNineteenButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwentyButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 11
+                        elif self.stage == 11:
+                            questionTwentyOneButtonSilviaHumanGuilty.draw(self.screen)
+                            questionTwentyTwoButtonSilviaHumanGuilty.draw(self.screen)
+                            questionTwentyThreeButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwentyFourButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 13
+                        elif self.stage == 13:
+                            questionTwentyFiveButtonSilviaHumanGuilty.draw(self.screen)
+                            questionTwentySixButtonSilviaHumanGuilty.draw(self.screen)
+                            questionTwentySevenButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwentyEightButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 15
+                        elif self.stage == 15:
+                            questionTwentyNineButtonSilviaHumanGuilty.draw(self.screen)
+                            questionThirtyButtonSilviaHumanGuilty.draw(self.screen)
+                            questionThirtyOneButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionThirtyTwoButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 17
+                        elif self.stage == 17:
+                            questionThirtyThreeButtonSilviaHumanGuilty.draw(self.screen)
+                            questionThirtyFourButtonSilviaHumanGuilty.draw(self.screen)
+                            questionThirtyFiveButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionThirtySixButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+                        # Stage 19
+                        elif self.stage == 19:
+                            questionThirtySevenButtonSilviaHumanGuilty.draw(self.screen)
+                            questionThirtyEightButtonSilviaHumanGuilty.draw(self.screen)
+                            questionThirtyNineButtonSilviaHumanGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionFourtyButtonSilviaHumanGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaHuman.draw(self.screen)
+
+                elif self.npcGuilty == "Silvia 2.0":
+                    # Display questions as buttons
+                    if self.npc == "Silvia 2.0":
+                        # Stage 0
+                        if self.stage == 0:
+                            questionOneButtonSilviaAIGuilty.draw(self.screen)
+                            questionTwoButtonSilviaAIGuilty.draw(self.screen)
+                            questionThreeButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionFourButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 2
+                        elif self.stage == 2:
+                            questionFiveButtonSilviaAIGuilty.draw(self.screen)
+                            questionSixButtonSilviaAIGuilty.draw(self.screen)
+                            questionSevenButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionEightButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 4
+                        elif self.stage == 4:
+                            questionNineButtonSilviaAIGuilty.draw(self.screen)
+                            questionTenButtonSilviaAIGuilty.draw(self.screen)
+                            questionElevenButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwelveButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 6
+                        elif self.stage == 6:
+                            questionThirteenButtonSilviaAIGuilty.draw(self.screen)
+                            questionFourteenButtonSilviaAIGuilty.draw(self.screen)
+                            questionFifteenButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionSixteenButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 8
+                        elif self.stage == 8:
+                            questionSeventeenButtonSilviaAIGuilty.draw(self.screen)
+                            questionEighteenButtonSilviaAIGuilty.draw(self.screen)
+                            questionNineteenButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwentyButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 10
+                        elif self.stage == 10:
+                            questionTwentyOneButtonSilviaAIGuilty.draw(self.screen)
+                            questionTwentyTwoButtonSilviaAIGuilty.draw(self.screen)
+                            questionTwentyThreeButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwentyFourButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 12
+                        elif self.stage == 12:
+                            questionTwentyFiveButtonSilviaAIGuilty.draw(self.screen)
+                            questionTwentySixButtonSilviaAIGuilty.draw(self.screen)
+                            questionTwentySevenButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionTwentyEightButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 14
+                        elif self.stage == 14:
+                            questionTwentyNineButtonSilviaAIGuilty.draw(self.screen)
+                            questionThirtyButtonSilviaAIGuilty.draw(self.screen)
+                            questionThirtyOneButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionThirtyTwoButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 16
+                        elif self.stage == 16:
+                            questionThirtyThreeButtonSilviaAIGuilty.draw(self.screen)
+                            questionThirtyFourButtonSilviaAIGuilty.draw(self.screen)
+                            questionThirtyFiveButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionThirtySixButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                        # Stage 18
+                        elif self.stage == 18:
+                            questionThirtySevenButtonSilviaAIGuilty.draw(self.screen)
+                            questionThirtyEightButtonSilviaAIGuilty.draw(self.screen)
+                            questionThirtyNineButtonSilviaAIGuilty.draw(self.screen)
+
+                            if self.buildString == self.secretString:
+                                questionFourtyButtonSilviaAIGuilty.draw(self.screen)
+                            else:
+                                hideSecretQuestionSilviaAI.draw(self.screen)
+                    
+                    elif self.npc == "Silvia Jade":
+                        # Stage 1
+                        if self.stage == 1:
                             questionOneButtonSilviaHuman.draw(self.screen)
                             questionTwoButtonSilviaHuman.draw(self.screen)
                             questionThreeButtonSilviaHuman.draw(self.screen)
@@ -840,181 +1561,359 @@ class Game:
                                 questionFourtyButtonSilviaHuman.draw(self.screen)
                             else:
                                 hideSecretQuestionSilviaHuman.draw(self.screen)
-                        
+
                 # Depending on even above a answer will be returned
                 if self.displayAnswer == True:
 
                     if self.npcGuilty == "Silvia Jade":
-                        # Scripted NPC response
-                        # self.textManager.scriptedResponse(self.screen, self.question, self.npc)
-                        # self.displayAnswer = False
+                        if self.responseType == "scripted":
+                            # Scripted NPC response
+                            self.textManager.scriptedResponse(self.screen, self.question, self.npc, self.npcGuilty)
+                            self.displayAnswer = False
 
-                        # Nonscripted NPC response
-                        if self.npc == "Silvia 2.0":
-                            if self.question == 1:
-                                self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaAI, self.npc)                            
-                            elif self.question == 2:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaAI, self.npc)                           
-                            elif self.question == 3:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaAI, self.npc)                            
-                            elif self.question == 4:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaAI, self.npc)                           
-                            elif self.question == 5:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaAI, self.npc)                           
-                            elif self.question == 6:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaAI, self.npc)                           
-                            elif self.question == 7:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaAI, self.npc)                           
-                            elif self.question == 8:
-                                self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaAI, self.npc)                           
-                            elif self.question == 9:
-                                self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaAI, self.npc)                            
-                            elif self.question == 10:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaAI, self.npc)                           
-                            elif self.question == 11:
-                                self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaAI, self.npc)                           
-                            elif self.question == 12:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaAI, self.npc)                           
-                            elif self.question == 13:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaAI, self.npc)                           
-                            elif self.question == 14:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaAI, self.npc)                           
-                            elif self.question == 15:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaAI, self.npc)                           
-                            elif self.question == 16:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaAI, self.npc)
-                            elif self.question == 17:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaAI, self.npc)                           
-                            elif self.question == 18:
-                                self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaAI, self.npc)                           
-                            elif self.question == 19:
-                                self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaAI, self.npc)                            
-                            elif self.question == 20:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaAI, self.npc)                           
-                            elif self.question == 21:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaAI, self.npc)                           
-                            elif self.question == 22:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaAI, self.npc)                           
-                            elif self.question == 23:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaAI, self.npc)                           
-                            elif self.question == 24:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaAI, self.npc)                           
-                            elif self.question == 25:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaAI, self.npc)                           
-                            elif self.question == 26:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaAI, self.npc)
-                            elif self.question == 27:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaAI, self.npc)                           
-                            elif self.question == 28:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaAI, self.npc)                           
-                            elif self.question == 29:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaAI, self.npc)                            
-                            elif self.question == 30:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaAI, self.npc)
-                            elif self.question == 31:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaAI, self.npc)                           
-                            elif self.question == 32:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaAI, self.npc)                           
-                            elif self.question == 33:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaAI, self.npc)                           
-                            elif self.question == 34:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaAI, self.npc)                           
-                            elif self.question == 35:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaAI, self.npc)                           
-                            elif self.question == 36:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaAI, self.npc)
-                            elif self.question == 37:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaAI, self.npc)                           
-                            elif self.question == 38:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaAI, self.npc)                           
-                            elif self.question == 39:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaAI, self.npc)                            
-                            elif self.question == 40:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaAI, self.npc)   
+                    
+                        elif self.responseType == "nonscripted":
+                            # Nonscripted NPC response
+                            if self.npc == "Silvia 2.0":
+                                if self.question == 1:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaAI, self.npc, self.npcGuilty)                            
+                                elif self.question == 2:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 3:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaAI, self.npc, self.npcGuilty)                            
+                                elif self.question == 4:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 5:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 6:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 7:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 8:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 9:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaAI, self.npc, self.npcGuilty)                            
+                                elif self.question == 10:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 11:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 12:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 13:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 14:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 15:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 16:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaAI, self.npc, self.npcGuilty)
+                                elif self.question == 17:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 18:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 19:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaAI, self.npc, self.npcGuilty)                            
+                                elif self.question == 20:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 21:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 22:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 23:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 24:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 25:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 26:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaAI, self.npc, self.npcGuilty)
+                                elif self.question == 27:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 28:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 29:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaAI, self.npc, self.npcGuilty)                            
+                                elif self.question == 30:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaAI, self.npc, self.npcGuilty)
+                                elif self.question == 31:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 32:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 33:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 34:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 35:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 36:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaAI, self.npc, self.npcGuilty)
+                                elif self.question == 37:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 38:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaAI, self.npc, self.npcGuilty)                           
+                                elif self.question == 39:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaAI, self.npc, self.npcGuilty)                            
+                                elif self.question == 40:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaAI, self.npc, self.npcGuilty)   
 
-                        elif self.npc == "Silvia Jade":
-                            if self.question == 1:
-                                self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaHuman, self.npc)                       
-                            elif self.question == 2:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaHuman, self.npc)                           
-                            elif self.question == 3:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaHuman, self.npc)                           
-                            elif self.question == 4:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaHuman, self.npc)                           
-                            elif self.question == 5:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaHuman, self.npc)                           
-                            elif self.question == 6:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaHuman, self.npc)                           
-                            elif self.question == 7:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaHuman, self.npc)                            
-                            elif self.question == 8:
-                                self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaHuman, self.npc)                           
-                            elif self.question == 9:
-                                self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaHuman, self.npc)                            
-                            elif self.question == 10:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaHuman, self.npc)                           
-                            elif self.question == 11:
-                                self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaHuman, self.npc)                           
-                            elif self.question == 12:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaHuman, self.npc)                           
-                            elif self.question == 13:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaHuman, self.npc)                            
-                            elif self.question == 14:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaHuman, self.npc)                            
-                            elif self.question == 15:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaHuman, self.npc)                            
-                            elif self.question == 16:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaHuman, self.npc)
-                            elif self.question == 17:
-                                self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaHuman, self.npc)                           
-                            elif self.question == 18:
-                                self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaHuman, self.npc)                           
-                            elif self.question == 19:
-                                self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaHuman, self.npc)                            
-                            elif self.question == 20:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaHuman, self.npc)                           
-                            elif self.question == 21:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaHuman, self.npc)                           
-                            elif self.question == 22:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaHuman, self.npc)                           
-                            elif self.question == 23:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaHuman, self.npc)                           
-                            elif self.question == 24:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaHuman, self.npc)                           
-                            elif self.question == 25:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaHuman, self.npc)                           
-                            elif self.question == 26:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaHuman, self.npc)
-                            elif self.question == 27:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaHuman, self.npc)                           
-                            elif self.question == 28:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaHuman, self.npc)                           
-                            elif self.question == 29:
-                                self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaHuman, self.npc)                            
-                            elif self.question == 30:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaHuman, self.npc)
-                            elif self.question == 31:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaHuman, self.npc)                           
-                            elif self.question == 32:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaHuman, self.npc)                           
-                            elif self.question == 33:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaHuman, self.npc)                           
-                            elif self.question == 34:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaHuman, self.npc)                           
-                            elif self.question == 35:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaHuman, self.npc)                           
-                            elif self.question == 36:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaHuman, self.npc)
-                            elif self.question == 37:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaHuman, self.npc)                           
-                            elif self.question == 38:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaHuman, self.npc)                           
-                            elif self.question == 39:
-                                self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaHuman, self.npc)                            
-                            elif self.question == 40:
-                                self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaHuman, self.npc)
-                                
-                        self.displayAnswer = False
+                            elif self.npc == "Silvia Jade":
+                                if self.question == 1:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaHumanGuilty, self.npc, self.npcGuilty)                       
+                                elif self.question == 2:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 3:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 4:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 5:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 6:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 7:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 8:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 9:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 10:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 11:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 12:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 13:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 14:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 15:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 16:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaHumanGuilty, self.npc, self.npcGuilty)
+                                elif self.question == 17:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 18:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 19:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 20:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 21:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 22:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 23:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 24:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 25:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 26:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaHumanGuilty, self.npc, self.npcGuilty)
+                                elif self.question == 27:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 28:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 29:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 30:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaHumanGuilty, self.npc, self.npcGuilty)
+                                elif self.question == 31:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 32:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 33:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 34:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 35:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 36:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaHumanGuilty, self.npc, self.npcGuilty)
+                                elif self.question == 37:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 38:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaHumanGuilty, self.npc, self.npcGuilty)                           
+                                elif self.question == 39:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaHumanGuilty, self.npc, self.npcGuilty)                            
+                                elif self.question == 40:
+                                    self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaHumanGuilty, self.npc, self.npcGuilty)
+                                    
+                            self.displayAnswer = False
+
+                    elif self.npcGuilty == "Silvia 2.0":
+                            if self.responseType == "scripted":
+                                # Scripted NPC response
+                                self.textManager.scriptedResponse(self.screen, self.question, self.npc, self.npcGuilty)
+                                self.displayAnswer = False
+
+                        
+                            elif self.responseType == "nonscripted":
+                                # Nonscripted NPC response
+                                if self.npc == "Silvia 2.0":
+                                    if self.question == 1:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaAIGuilty, self.npc, self.npcGuilty)                            
+                                    elif self.question == 2:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 3:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaAIGuilty, self.npc, self.npcGuilty)                            
+                                    elif self.question == 4:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 5:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 6:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 7:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 8:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 9:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaAIGuilty, self.npc, self.npcGuilty)                            
+                                    elif self.question == 10:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 11:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 12:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 13:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 14:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 15:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 16:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaAIGuilty, self.npc, self.npcGuilty)
+                                    elif self.question == 17:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 18:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 19:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaAIGuilty, self.npc, self.npcGuilty)                            
+                                    elif self.question == 20:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 21:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 22:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 23:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 24:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 25:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 26:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaAIGuilty, self.npc, self.npcGuilty)
+                                    elif self.question == 27:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 28:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 29:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaAIGuilty, self.npc, self.npcGuilty)                            
+                                    elif self.question == 30:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaAIGuilty, self.npc, self.npcGuilty)
+                                    elif self.question == 31:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 32:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 33:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 34:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 35:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 36:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaAIGuilty, self.npc, self.npcGuilty)
+                                    elif self.question == 37:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 38:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaAIGuilty, self.npc, self.npcGuilty)                           
+                                    elif self.question == 39:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaAIGuilty, self.npc, self.npcGuilty)                            
+                                    elif self.question == 40:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaAIGuilty, self.npc, self.npcGuilty)   
+
+                                elif self.npc == "Silvia Jade":
+                                    if self.question == 1:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionOneSilviaHuman, self.npc, self.npcGuilty)                       
+                                    elif self.question == 2:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwoSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 3:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThreeSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 4:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFourSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 5:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFiveSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 6:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSixSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 7:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSevenSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 8:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionEightSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 9:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionNineSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 10:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTenSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 11:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionElevenSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 12:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwelveSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 13:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirteenSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 14:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFourteenSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 15:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFifteenSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 16:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSixteenSilviaHuman, self.npc, self.npcGuilty)
+                                    elif self.question == 17:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionSeventeenSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 18:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionEighteenSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 19:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionNineteenSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 20:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentySilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 21:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyOneSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 22:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyTwoSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 23:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyThreeSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 24:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyFourSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 25:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyFiveSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 26:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentySixSilviaHuman, self.npc, self.npcGuilty)
+                                    elif self.question == 27:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentySevenSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 28:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyEightSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 29:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionTwentyNineSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 30:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtySilviaHuman, self.npc, self.npcGuilty)
+                                    elif self.question == 31:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyOneSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 32:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyTwoSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 33:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyThreeSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 34:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyFourSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 35:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyFiveSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 36:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtySixSilviaHuman, self.npc, self.npcGuilty)
+                                    elif self.question == 37:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtySevenSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 38:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyEightSilviaHuman, self.npc, self.npcGuilty)                           
+                                    elif self.question == 39:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionThirtyNineSilviaHuman, self.npc, self.npcGuilty)                            
+                                    elif self.question == 40:
+                                        self.aiChat.nonscriptedResponse(self.screen, questionFourtySilviaHuman, self.npc, self.npcGuilty)
+                                        
+                                self.displayAnswer = False
 
             elif self.scene == "guilty_suspect":
                 if self.npcBoolean == " ":
@@ -1024,14 +1923,28 @@ class Game:
                     self.textManager.displayRedText(self.screen, self.whosGuilty,
                                                     GUILTY_X, GUILTY_Y, GUILTY_WIDTH, GUILTY_HEIGHT,
                                                     "large")
-                if self.npcBoolean == True:
-                    self.textManager.displayRedText(self.screen, self.correct,
-                                                    CORRECT_X, CORRECT_Y, CORRECT_WIDTH, CORRECT_HEIGHT,
-                                                    "extra large")
-                elif self.npcBoolean == False:
-                    self.textManager.displayRedText(self.screen, self.wrong,
-                                                    WRONG_X, WRONG_Y, WRONG_WIDTH, WRONG_HEIGHT,
-                                                    "extra large")
+                else:
+                    if self.allowInput == True:
+                        for row, column in enumerate(self.inputText):
+                                self.textManager.displayRedText(self.screen, column,
+                                                                INPUT_X, INPUT_Y + (row * GAP_FONT), INPUT_WIDTH, INPUT_HEIGHT,
+                                                                "medium")
+                        submit.drawMediumButton(self.screen)
+
+                        self.textManager.displayRedText(self.screen, self.inputReason,
+                                                        REASON_X, REASON_Y, REASON_WIDTH, REASON_HEIGHT,
+                                                        "medium")
+
+                    if self.npcBoolean == True:
+                        self.textManager.displayRedText(self.screen, self.correct,
+                                                        CORRECT_X, CORRECT_Y, CORRECT_WIDTH, CORRECT_HEIGHT,
+                                                        "extra large")
+                        
+                    elif self.npcBoolean == False:
+                        self.textManager.displayRedText(self.screen, self.wrong,
+                                                        WRONG_X, WRONG_Y, WRONG_WIDTH, WRONG_HEIGHT,
+                                                        "extra large")
+                        
 
             pygame.display.flip()
             pygame.display.update()

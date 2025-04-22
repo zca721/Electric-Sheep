@@ -2,14 +2,24 @@ from settings import *
 from questions import *
 from buttonManager import Button
 
-# # Main menu buttons
+# Main menu buttons
 startGame = Button(START_GAME_X, START_GAME_Y, START_GAME_WIDTH, START_GAME_HEIGHT,
                                         "START GAME",
+                                        'white', 'gray', action=None)
+
+# Game description buttons
+continueGame = Button(CONTINUE_GAME_X, CONTINUE_GAME_Y, CONTINUE_GAME_WIDTH, CONTINUE_GAME_HEIGHT,
+                                        "CONTINUE",
                                         'white', 'gray', action=None)
 
 # Interrogation buttons
 guessGuiltySuspect = Button(NEXT_X, NEXT_Y, NEXT_WIDTH, NEXT_HEIGHT,
                                         "guess guilty suspect",
+                                        'white', 'grey', action=None)
+
+# Guilty select buttons
+submit = Button(SUBMIT_X, SUBMIT_Y, SUBMIT_WIDTH, SUBMIT_HEIGHT,
+                                        "SUBMIT",
                                         'white', 'grey', action=None)
 
 # Buttons for selecting an NPC to interrogate
@@ -29,6 +39,7 @@ guiltySilviaHuman = Button(GUILTY_HUMAN_SILVIA_X, GUILTY_HUMAN_SILVIA_Y, GUILTY_
                                         'white', 'grey', action=None)
 
 # Buttons for Silvia 2.0 interrogation questions
+# Silvia 2.0 not guilty
 hideSecretQuestionSilviaAI = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
                                         "",
                                         'white', 'gray', action=None)
@@ -153,8 +164,259 @@ questionFourtyButtonSilviaAI = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_
                                         questionFourtySilviaAI,
                                         'white', 'grey', action=None)
 
+# Silvia 2.0 guilty
+hideSecretQuestionSilviaAI = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        "",
+                                        'white', 'gray', action=None)
+questionOneButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionOneSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwoButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTwoSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThreeButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThreeSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionFourButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionFourSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionFiveButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionFiveSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionSixButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionSixSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionSevenButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionSevenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionEightButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionEightSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionNineButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionNineSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTenButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionElevenButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionElevenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwelveButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwelveSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirteenButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionThirteenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionFourteenButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionFourteenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionFifteenButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionFifteenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionSixteenButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionSixteenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionSeventeenButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionSeventeenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionEighteenButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionEighteenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionNineteenButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionNineteenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwentySilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyOneButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionTwentyOneSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyTwoButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTwentyTwoSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyThreeButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionTwentyThreeSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyFourButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwentyFourSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyFiveButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionTwentyFiveSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentySixButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTwentySixSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentySevenButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionTwentySevenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyEightButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwentyEightSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyNineButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionTwentyNineSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionThirtySilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyOneButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThirtyOneSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyTwoButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionThirtyTwoSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyThreeButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionThirtyThreeSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyFourButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionThirtyFourSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyFiveButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThirtyFiveSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtySixButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionThirtySixSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtySevenButtonSilviaAIGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionThirtySevenSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyEightButtonSilviaAIGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionThirtyEightSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyNineButtonSilviaAIGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThirtyNineSilviaAIGuilty,
+                                        'white', 'grey', action=None)
+questionFourtyButtonSilviaAIGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionFourtySilviaAIGuilty,
+                                        'white', 'grey', action=None)
+
 
 # Buttons for Silvia Jade interrogation questions
+# Silvia Jade guilty
+hideSecretQuestionSilviaHuman = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        "",
+                                        'white', 'gray', action=None)
+questionOneButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionOneSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwoButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTwoSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThreeButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThreeSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionFourButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionFourSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionFiveButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionFiveSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionSixButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionSixSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionSevenButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionSevenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionEightButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionEightSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionNineButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionNineSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTenButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionElevenButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionElevenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwelveButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwelveSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirteenButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionThirteenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionFourteenButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionFourteenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionFifteenButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionFifteenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionSixteenButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionSixteenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionSeventeenButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionSeventeenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionEighteenButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionEighteenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionNineteenButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionNineteenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwentySilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyOneButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionTwentyOneSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyTwoButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTwentyTwoSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyThreeButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionTwentyThreeSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyFourButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwentyFourSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyFiveButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionTwentyFiveSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentySixButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionTwentySixSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentySevenButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionTwentySevenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyEightButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionTwentyEightSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionTwentyNineButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionTwentyNineSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionThirtySilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyOneButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThirtyOneSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyTwoButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionThirtyTwoSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyThreeButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionThirtyThreeSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyFourButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionThirtyFourSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyFiveButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThirtyFiveSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtySixButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionThirtySixSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtySevenButtonSilviaHumanGuilty = Button(BUTTON_ONE_X, BUTTON_ONE_Y, BUTTON_ONE_WIDTH, BUTTON_ONE_HEIGHT,
+                                        questionThirtySevenSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyEightButtonSilviaHumanGuilty = Button(BUTTON_TWO_X, BUTTON_TWO_Y, BUTTON_TWO_WIDTH, BUTTON_TWO_HEIGHT,
+                                        questionThirtyEightSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionThirtyNineButtonSilviaHumanGuilty = Button(BUTTON_THREE_X, BUTTON_THREE_Y, BUTTON_THREE_WIDTH, BUTTON_THREE_HEIGHT,
+                                        questionThirtyNineSilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+questionFourtyButtonSilviaHumanGuilty = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
+                                        questionFourtySilviaHumanGuilty,
+                                        'white', 'grey', action=None)
+
+# Silvia Jade not guilty
 hideSecretQuestionSilviaHuman = Button(BUTTON_FOUR_X, BUTTON_FOUR_Y, BUTTON_FOUR_WIDTH, BUTTON_FOUR_HEIGHT,
                                         "",
                                         'white', 'gray', action=None)
