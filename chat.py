@@ -164,8 +164,8 @@ class AIChat:
 
         user_input = question
 
-        print(user_input)
-        print()
+        # print(user_input)
+        # print()
 
         text = open("SystemInstructionOutput.txt", "a")
         text.write("----------------------------------------------------------------------------------------------------------------------------------------" + "\n")
@@ -182,8 +182,8 @@ class AIChat:
         model_response = response.text
         inputList = model_response.split("\n")
 
-        print(inputList[0])
-        print()
+        # print(inputList[0])
+        # print()
 
         text = open("SystemInstructionOutput.txt", "a")
         text.write(npc + ": " + inputList[0] + "\n")
@@ -198,13 +198,13 @@ class AIChat:
         if npc == "Silvia 2.0":
             self.historySilviaAI.append({"role": "user", "parts": [user_input]})
             self.historySilviaAI.append({"role": "model", "parts": [model_response]})
-            print("NPC " + npc)
-            print(self.historySilviaAI)
+            # print("NPC " + npc)
+            # print(self.historySilviaAI)
         elif npc == "Silvia Jade":
             self.historySilviaJade.append({"role": "user", "parts": [user_input]})
             self.historySilviaJade.append({"role": "model", "parts": [model_response]})
-            print("NPC " + npc)
-            print(self.historySilviaJade)
+            # print("NPC " + npc)
+            # print(self.historySilviaJade)
 
         # print(self.history)
 
