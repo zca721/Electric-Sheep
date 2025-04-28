@@ -7,6 +7,31 @@ startGame = Button(START_GAME_X, START_GAME_Y, START_GAME_WIDTH, START_GAME_HEIG
                                         "START GAME",
                                         'white', 'gray', action=None)
 
+settingsGame = Button(SETTINGS_X, SETTINGS_Y, SETTINGS_WIDTH, SETTINGS_HEIGHT,
+                                        "SETTINGS",
+                                        'white', 'gray', action=None)
+
+# Settings menu buttons
+mainMenu = Button(MAIN_MENU_X, MAIN_MENU_Y, MAIN_MENU_WIDTH, MAIN_MENU_HEIGHT,
+                                        "MAIN MENU",
+                                        'white', 'gray', action=None)
+
+scriptedResponse = Button(SCRIPTED_X, SCRIPTED_Y, SCRIPTED_WIDTH, SCRIPTED_HEIGHT,
+                                        "SCRIPTED",
+                                        'white', 'gray', action=None)
+
+nonscriptedResponse = Button(NONSCRIPTED_X, NONSCRIPTED_Y, NONSCRIPTED_WIDTH, NONSCRIPTED_HEIGHT,
+                                        "NONSCRIPTED",
+                                        'white', 'gray', action=None)
+
+silviaAIGuilty = Button(AI_GUILTY_X, AI_GUILTY_Y, AI_GUILTY_WIDTH, AI_GUILTY_HEIGHT,
+                                        "SILVIA 2.0 GUILTY",
+                                        'white', 'gray', action=None)
+
+silviaHumanGuilty = Button(HUMAN_GUILTY_X, HUMAN_GUILTY_Y, HUMAN_GUILTY_WIDTH, HUMAN_GUILTY_HEIGHT,
+                                        "SILVIA JADE GUILTY",
+                                        'white', 'gray', action=None)
+
 # Game description buttons
 continueGame = Button(CONTINUE_GAME_X, CONTINUE_GAME_Y, CONTINUE_GAME_WIDTH, CONTINUE_GAME_HEIGHT,
                                         "CONTINUE",
