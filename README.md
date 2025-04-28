@@ -44,13 +44,7 @@ https://www.youtube.com/watch?v=CaxPa1FuHx4&list=PLvMpiyxnnwmoejD_EXadNUbVQAl8Ea
 ## Should be able to play game on your local machine at this point.
 
 ### To change from scripted and non-scripted responses:
-In main.py\
-self.responseType = "nonscripted"\
-self.responseType = "scripted"\
--Comment out which ever one you don't want to use and leave the one you would like to use active
+Select either scripted or non-scripted in settings menu and an X will appear next to choice
 
 ### To change from Silvia 2.0 guilty or Silvia Jade guilty:
-In main.py\
-self.npcGuilty = "Silvia Jade"\
-self.npcGuilty = "Silvia 2.0"\
--Comment out which ever one you don't want to use and leave the one you would like to use active
+Select either Silvia 2.0 or Silvia Jade in settings menu and an X will appear next to choice
