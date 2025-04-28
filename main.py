@@ -14,7 +14,8 @@ class Game:
         pygame.display.set_caption('Electric Sheep')
 
         # Scene
-        self.scene = "main_menu"
+        self.scene = "settings"
+        # self.scene = "main_menu"
         # self.scene = "guilty_suspect"
 
         # Used for calculating the width of the characters based off font size to determine next line in input text
@@ -42,8 +43,9 @@ class Game:
         self.sprites = pygame.sprite.Group()
 
         # Text based variables
-        self.responseType = "nonscripted"
+        # self.responseType = "nonscripted"
         # self.responseType = "scripted"
+        self.responseType = " "
         self.displayAnswer = False
         self.stage = 0
         self.slotOne = 1
@@ -67,6 +69,10 @@ class Game:
 
         # Display text in main menu
         self.electricSheepTitle = "ELECTRIC SHEEP"
+
+        # Display text in settings menu
+        self.settings = "SETTINGS"
+        self.selected = "X"
 
         # Display text in game decription
         self.gameDescription = "DETECTIVE LOG"
@@ -97,8 +103,9 @@ class Game:
         self.npc = " "
         self.npcSelect = " "
         self.npcBoolean = " "
+        self.npcGuilty = " "
         # self.npcGuilty = "Silvia Jade"
-        self.npcGuilty = "Silvia 2.0"
+        # self.npcGuilty = "Silvia 2.0"
 
     # Helper functions
     # Builds secret string for each stage
@@ -139,6 +146,27 @@ class Game:
                     if startGame.handle_event(event):
                         # self.scene = "interrogation"
                         self.scene = "game_description"
+
+                    # Disabled for usability tests
+                    # if settingsGame.handle_event(event):
+                    #     self.scene = "settings"
+
+                elif self.scene == "settings":
+                    self.screen.fill('black')
+                    if mainMenu.handle_event(event):
+                        self.scene = "main_menu"
+
+                    if scriptedResponse.handle_event(event):
+                        self.responseType = "scripted"
+
+                    elif nonscriptedResponse.handle_event(event):
+                        self.responseType = "nonscripted"
+
+                    if silviaAIGuilty.handle_event(event):
+                        self.npcGuilty = "Silvia 2.0"
+
+                    elif silviaHumanGuilty.handle_event(event):
+                        self.npcGuilty = "Silvia Jade"
 
                 elif self.scene == "game_description":
                     self.screen.fill('black')
@@ -1077,15 +1105,50 @@ class Game:
             # Scenemanager for while loop
             if self.scene == "main_menu":
                 startGame.drawMediumButton(self.screen)
+
+                # Disabled for usability tests
+                # settingsGame.drawMediumButton(self.screen)
+
                 self.textManager.displayRedText(self.screen, self.electricSheepTitle,
                                                   ELECTRIC_SHEEP_X, ELECTRIC_SHEEP_Y, ELECTRIC_SHEEP_WIDTH, ELECTRIC_SHEEP_HEIGHT,
                                                   "extra large")
+                
+            elif self.scene == "settings":
+                mainMenu.drawMediumButton(self.screen)
+                scriptedResponse.drawMediumButton(self.screen)
+                nonscriptedResponse.drawMediumButton(self.screen)
+                silviaAIGuilty.drawMediumButton(self.screen)
+                silviaHumanGuilty.drawMediumButton(self.screen)
+
+                self.textManager.displayRedText(self.screen, self.settings,
+                                                  SETTINGS_TITLE_X, SETTINGS_TITLE_Y, SETTINGS_TITLE_WIDTH, SETTINGS_TITLE_HEIGHT,
+                                                  "extra large")
+                
+                if self.npcGuilty == "Silvia 2.0":
+                    self.textManager.displayRedText(self.screen, self.selected,
+                                                  AI_GUILTY_X - SETTINGS_GAP_X, AI_GUILTY_Y - SETTINGS_GAP_Y, SETTINGS_GAP_X, SETTINGS_GAP_X,
+                                                  "large")
+                    
+                elif self.npcGuilty == "Silvia Jade":
+                    self.textManager.displayRedText(self.screen, self.selected,
+                                                  HUMAN_GUILTY_X - SETTINGS_GAP_X, HUMAN_GUILTY_Y - SETTINGS_GAP_Y, SETTINGS_GAP_X, SETTINGS_GAP_X,
+                                                  "large")
+                    
+                if self.responseType == "scripted":
+                    self.textManager.displayRedText(self.screen, self.selected,
+                                                  SCRIPTED_X - SETTINGS_GAP_X, SCRIPTED_Y - SETTINGS_GAP_Y, SETTINGS_GAP_X, SETTINGS_GAP_X,
+                                                  "large")
+                    
+                elif self.responseType == "nonscripted":
+                    self.textManager.displayRedText(self.screen, self.selected,
+                                                  NONSCRIPTED_X - SETTINGS_GAP_X, NONSCRIPTED_Y - SETTINGS_GAP_Y, SETTINGS_GAP_X, SETTINGS_GAP_X,
+                                                  "large")
                 
             elif self.scene == "game_description":
                 continueGame.drawMediumButton(self.screen)
 
                 self.textManager.displayRedText(self.screen, self.gameDescription,
-                                                  ELECTRIC_SHEEP_X, ELECTRIC_SHEEP_Y, ELECTRIC_SHEEP_WIDTH, ELECTRIC_SHEEP_HEIGHT,
+                                                  DESCRIPTION_TITLE_X, DESCRIPTION_TITLE_Y, DESCRIPTION_TITLE_WIDTH, DESCRIPTION_TITLE_HEIGHT,
                                                   "extra large")
                 self.textManager.displayRedText(self.screen, self.gameDescriptionOne,
                                                   DESCRIPTION_X, DESCRIPTION_Y, DESCRIPTION_WIDTH, DESCRIPTION_HEIGHT,
