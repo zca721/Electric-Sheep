@@ -128,11 +128,6 @@ class Game:
 
     def run(self):
 
-        text = open("SystemInstructionOutput.txt", "a")
-        text.write("----------------------------------------------------------------------------------------------------------------------------------------" + "\n")
-        text.write("NEW GAME SESSION: " + self.responseType + "\n")
-        text.close()
-
         while True:
 
             for event in pygame.event.get():
@@ -144,6 +139,12 @@ class Game:
                 if self.scene == "main_menu":
                     self.screen.fill('black')
                     if startGame.handle_event(event):
+
+                        text = open("SystemInstructionOutput.txt", "a")
+                        text.write("----------------------------------------------------------------------------------------------------------------------------------------" + "\n")
+                        text.write("NEW GAME SESSION: " + self.responseType + "\n")
+                        text.close()
+                        
                         # self.scene = "interrogation"
                         self.scene = "game_description"
 
@@ -1060,7 +1061,7 @@ class Game:
                                 self.buildText += string
                             self.allowInput = False
                             text = open("GuiltyVerdict.txt", "a")
-                            text.write("Guilty Suspect: " + self.npcGuilty + "\n" + "Suspect User Selected: " + self.npc + "\n")
+                            text.write("Total Time: " + str(round(self.time/60, 2)) + "\n" + "Guilty Suspect: " + self.npcGuilty + "\n" + "Suspect User Selected: " + self.npc + "\n")
                             text.write(self.buildText + "\n")
                             text.write("----------------------------------------------------------------------------------------------------------------------------------------" + "\n")
                             text.close()
