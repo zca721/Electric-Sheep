@@ -8,6 +8,11 @@ class Button:
         self.mediumFont = pygame.font.Font('freesansbold.ttf', LARGE_FONT)
         # self.delay_time = 4000  # milliseconds
         # self.last_click_time = 0
+        pygame.mixer.init()
+        # self.buttonClick = pygame.mixer.Sound("./sounds/buttonClickOne.mp3")
+        # self.buttonClick = pygame.mixer.Sound("./sounds/buttonClickTwo.mp3")
+        self.buttonClick = pygame.mixer.Sound("./sounds/buttonClickThree.mp3")
+        # self.buttonClick = pygame.mixer.Sound("./sounds/buttonClickFour.mp3")
 
         self.rect = pygame.Rect(x, y, width, height)
         self.x = x
@@ -45,6 +50,7 @@ class Button:
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.rect.collidepoint(event.pos):
+                self.buttonClick.play()
                 return True
                     
     # def delay_handle_event(self, event):

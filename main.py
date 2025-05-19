@@ -29,6 +29,15 @@ class Game:
         self.lastClickTime = 0
         self.pauseClick = 6
 
+        # Sound effects
+        pygame.mixer.init()
+        # self.buttonClickError = pygame.mixer.Sound("./sounds/buttonClickError.mp3")
+        # self.interrogationMusic = pygame.mixer.Sound("./sounds/interrogationMusic.mp3")
+        # self.interrogationMusic.set_volume(0.1)
+        pygame.mixer.music.load("./sounds/interrogationMusic.mp3")
+        pygame.mixer.music.play(-1)  # Loop the music indefinitely
+        
+
         # Sprite images
         self.silviaAISprite = pygame.image.load("./images/silviaAI/SilviaAI.png").convert_alpha()
         self.silviaHumanSprite = pygame.image.load("./images/silviaJade/SilviaJade.png").convert_alpha()
@@ -178,6 +187,12 @@ class Game:
                     # Displays interrogation sprite images
                     self.sprites.add(self.interrogationBackground)
                     self.sprites.draw(self.screen)
+
+                    # Plays background music when m is pressed
+                    # if event.type == pygame.KEYDOWN:
+                    #     if event.key == pygame.K_m:
+                    #         pygame.mixer.music.load("./sounds/interrogationMusic.mp3")
+                    #         pygame.mixer.music.play(-1)  # Loop the music indefinitely
 
                     # Guess guilty suspect clicked changes scene
                     if guessGuiltySuspect.handle_event(event) and self.stage == 20:
@@ -1061,7 +1076,7 @@ class Game:
                                 self.buildText += string
                             self.allowInput = False
                             text = open("GuiltyVerdict.txt", "a")
-                            text.write("Total Time: " + str(round(self.time/60, 2)) + "\n" + "Guilty Suspect: " + self.npcGuilty + "\n" + "Suspect User Selected: " + self.npc + "\n")
+                            text.write("Total Time: " + str(round(self.time/60, 2)) + "\n" + "Response Type: " + self.responseType + "Guilty Suspect: " + self.npcGuilty + "\n" + "Suspect User Selected: " + self.npc + "\n")
                             text.write(self.buildText + "\n")
                             text.write("----------------------------------------------------------------------------------------------------------------------------------------" + "\n")
                             text.close()
