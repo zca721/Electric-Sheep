@@ -4,3 +4,23 @@ Guilty Suspect: Silvia Jade
 Suspect User Selected: Silvia 2.0
 they seemed guilty
 ----------------------------------------------------------------------------------------------------------------------------------------
+User 1 Condition 2
+Total Time: 26.55
+Response Type: nonscripted
+Guilty Suspect: Silvia Jade
+Suspect User Selected: Silvia 2.0
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Total Time: 16.84
+Response Type: nonscripted
+Guilty Suspect: Silvia Jade
+Suspect User Selected: Silvia Jade
+Practice run after User 1, testing if the AI would give incoherant responses that happend for the last user. Wondering if some how the UW wifi caused the issue, or if the asking of the same question over and over caused google gemini to react weird and spit out gibberish. Everything went smooth on my test, but I played by selecting a question once and not multiple times. I will test this next. May 21st Wednesday @ 2:42pm.
+----------------------------------------------------------------------------------------------------------------------------------------
+User 2 Condition 1
+Total Time: 16.6
+Response Type: scripted
+Guilty Suspect: Silvia 2.0
+Suspect User Selected: Silvia Jade
+it would have been a crime of passion
+----------------------------------------------------------------------------------------------------------------------------------------

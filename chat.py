@@ -28,8 +28,8 @@ class AIChat:
             if npc == "Silvia 2.0":
                 # Create the model
                 generation_config = {
-                    "temperature": 2,
-                    # "temperature": 1,
+                    # "temperature": 2,
+                    "temperature": 1,
                     # "temperature": 0,
                     "top_p": 0.95,
                     "top_k": 40,
@@ -100,8 +100,8 @@ class AIChat:
             if npc == "Silvia 2.0":
                 # Create the model
                 generation_config = {
-                    "temperature": 2,
-                    # "temperature": 1,
+                    # "temperature": 2,
+                    "temperature": 1,
                     # "temperature": 0,
                     "top_p": 0.95,
                     "top_k": 40,
